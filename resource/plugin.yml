@@ -1,0 +1,8 @@
+name: TouhouMC_Races_BasicFOR1.9
+main: net.TouhouMC.Halcram.TouhouMC_Races_Basic.TouhouMC_Races_Basic
+author: Halcram
+version: 1.5
+commands:
+   tmcr:
+      description: Base Command
+      aliases: [touhoumcraces,races]

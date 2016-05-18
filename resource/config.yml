@@ -1,0 +1,1203 @@
+race:
+  kedama:
+    tag: §0[GRZ]
+    real: §0外来人
+    root: なし
+    rank: 0
+    evol:
+      needpoint: 0
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 初期種族。早く進化しましょう
+      skills:
+      - ''
+    gun:
+      guntype: ''
+      gunlevel: 0
+  ninngen:
+    tag: §c[NNG]
+    real: §c人間
+    root: kedama
+    rank: 1
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 幻想郷では弱いが、人里の恩恵を得る
+      skills:
+      - ''
+    gun:
+      guntype: NNG
+      gunlevel: 1
+  youma:
+    tag: §e[YUM]
+    real: §e妖魔
+    root: kedama
+    rank: 2
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 雑多な妖怪。飢えている
+      skills:
+      - ''
+    gun:
+      guntype: YUM
+      gunlevel: 1
+  yousei:
+    tag: §2[YUS]
+    real: §2妖精
+    root: kedama
+    rank: 3
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 知能は基本的に低いものの自然の力を持つ
+      skills:
+      - ''
+    gun:
+      guntype: YUS
+      gunlevel: 1
+  akuma:
+    tag: §1[AKM]
+    real: §1悪魔
+    root: kedama
+    rank: 4
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 夜にその力を開眼させる。弱点も多い
+      skills:
+      - ''
+    gun:
+      guntype: AKM
+      gunlevel: 1
+  seirei:
+    tag: §d[SIR]
+    real: §d精霊
+    root: kedama
+    rank: 5
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 一般的に霊というとこれを指す
+      skills:
+      - ''
+    gun:
+      guntype: SIR
+      gunlevel: 1
+  youzyuu:
+    tag: §6[YUZ]
+    real: §6妖獣
+    root: kedama
+    rank: 6
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 獣が魔力を得て妖怪になった姿。
+      skills:
+      - ''
+    gun:
+      guntype: YUZ
+      gunlevel: 1
+  kami:
+    tag: §f[YKM]
+    real: §f神
+    root: kedama
+    rank: 7
+    evol:
+      needpoint: 1
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 雑多な神の事をいう。幻想郷では弱いものは弱い
+      skills:
+      - ''
+    gun:
+      guntype: KAM
+      gunlevel: 1
+  mazyo:
+    tag: §4[MAZ]
+    real: §4魔女
+    root: ninngen
+    rank: 11
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人間が魔法を使えるようになった姿。色々な魔法を扱える
+      skills:
+      - ''
+    gun:
+      guntype: NNG
+      gunlevel: 2
+  houraizin:
+    tag: §4[HRZ]
+    real: §4蓬莱人
+    root: ninngen
+    rank: 11
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人間が蓬莱の薬を服用した姿。不老不死・・・のはず。
+      skills:
+      - ''
+  gennzinnsin:
+    tag: §4[GZS]
+    real: §4現人神
+    root: ninngen
+    rank: 11
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人間が神になった姿。奇跡を起こす
+      skills:
+      - ''
+    gun:
+      guntype: NNG
+      gunlevel: 2
+  sennnin:
+    tag: §0[SNN]
+    real: §0仙人
+    root: ninngen
+    rank: 12
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人間が仙人になった姿。少しの壁ならすり抜ける
+      skills:
+      - ''
+    gun:
+      guntype: GNN
+      gunlevel: 2
+  sibito:
+    tag: §0[SBT]
+    real: §0死人
+    root: ninngen
+    rank: 12
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人間がキョンシーになった姿。別名ゾンビ
+      skills:
+      - ''
+    gun:
+      guntype: GNN
+      gunlevel: 2
+  tenngu:
+    tag: §7[TNG]
+    real: §7天狗
+    root: youma
+    rank: 13
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖魔に翼が生え天狗になった姿。レッド○ル
+      skills:
+      - ''
+    gun:
+      guntype: YUM
+      gunlevel: 2
+  kappa:
+    tag: §8[KPP]
+    real: §8河童
+    root: youma
+    rank: 14
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖魔が水中でも生活できるようになった姿。お寿司
+      skills:
+      - ''
+    gun:
+      guntype: YUZ
+      gunlevel: 2
+  kennyou:
+    tag: §8[KNY]
+    real: §8賢妖
+    root: youma
+    rank: 14
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖魔の知能が上がった姿。
+      skills:
+      - ''
+    gun:
+      guntype: YUZ
+      gunlevel: 2
+  satori:
+    tag: §a[STR]
+    real: §aサトリ
+    root: yousei
+    rank: 15
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖精が第三の目を開いた姿。相手の心を読める
+      skills:
+      - ''
+    gun:
+      guntype: YUS
+      gunlevel: 2
+  kobito:
+    tag: §a[KOB]
+    real: §a小人
+    root: yousei
+    rank: 15
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖精が小さくなった姿。回避率が高い
+      skills:
+      - ''
+    gun:
+      guntype: YUS
+      gunlevel: 2
+  kibito:
+    tag: §5[KBT]
+    real: §5樹人
+    root: yousei
+    rank: 16
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖精の自然の力が増した姿。毒をばらまく
+      skills:
+      - ''
+    gun:
+      guntype: SIR
+      gunlevel: 2
+  kyuuketuki:
+    tag: §b[KKT]
+    real: §b吸血鬼
+    root: akuma
+    rank: 17
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 悪魔が吸血するようになった姿。昼だと弱い
+      skills:
+      - ''
+    gun:
+      guntype: AKM
+      gunlevel: 2
+  oni:
+    tag: §3[ONI]
+    real: §3鬼
+    root: akuma
+    rank: 18
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 悪魔が力を増した姿。怪力
+      skills:
+      - ''
+    gun:
+      guntype: KAM
+      gunlevel: 2
+  hannrei:
+    tag: §5[HNR]
+    real: §5半霊
+    root: seirei
+    rank: 19
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 精霊が半人半霊になった姿。みょん
+      skills:
+      - ''
+    gun:
+      guntype: SIR
+      gunlevel: 2
+  onnryou:
+    tag: §5[ORY]
+    real: §5怨霊
+    root: seirei
+    rank: 19
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 精霊に恨みが溜まった姿。消えたくない
+      skills:
+      - ''
+    gun:
+      guntype: SIR
+      gunlevel: 2
+  sourei:
+    tag: §a[SUR]
+    real: §a騒霊
+    root: seirei
+    rank: 20
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 精霊が楽器で演奏するようになった姿。オーケストラ！
+      skills:
+      - ''
+    gun:
+      guntype: YUS
+      gunlevel: 2
+  zyuuzin:
+    tag: §8[ZUZ]
+    real: §8獣人
+    root: youzyuu
+    rank: 21
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 妖獣が人の姿になったもの。夜だと強くなる
+      skills:
+      - ''
+    gun:
+      guntype: YUZ
+      gunlevel: 2
+  siki:
+    tag: §8[SIK]
+    real: §8式
+    root: youzyuu
+    rank: 21
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 強大な妖怪に使役された妖獣。ちぇぇぇぇん！
+      skills:
+      - ''
+    gun:
+      guntype: YUZ
+      gunlevel: 2
+  ninngyo:
+    tag: §7[NGY]
+    real: §7人魚
+    root: youzyuu
+    rank: 22
+    evol:
+      needpoint: 10
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 豊穣を司る神様。農民が喜ぶ
+      skills:
+      - ''
+    gun:
+      guntype: YUM
+      gunlevel: 2
+  houzyousin:
+    tag: §3[HZS]
+    real: §3豊穣神
+    root: kami
+    rank: 23
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 農民から豊作を祝って祀られた神。常に満腹なる姿を見せており、逆に人に空腹感を与えることも
+      skills:
+      - ''
+    gun:
+      guntype: KAM
+      gunlevel: 2
+  yakusin:
+    tag: §b[YKS]
+    real: §b厄神
+    root: kami
+    rank: 24
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人々から祟りがあるとして忌避されている神。しかし実際は人の厄を取り除いて幸せにする優しい神である
+      skills:
+      - ''
+    gun:
+      guntype: AKM
+      gunlevel: 2
+  makaizin:
+    tag: §5[MKZ]
+    real: §5魔界人
+    root: mazyo
+    rank: 31
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 魔女の先祖がいた異郷の地の民。そのためよく強い魔力は持っている事はたしか
+      skills:
+      - ''
+    gun:
+      guntype: NNG-AAA
+      gunlevel: 3
+  mugennzin:
+    tag: §5[MGZ]
+    real: §5夢現人
+    root: mazyo
+    rank: 31
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 夢現人。転移装置を使える
+      skills:
+      - ''
+    gun:
+      guntype: NNG-AAA
+      gunlevel: 3
+  tukibito:
+    tag: §5[TKB]
+    real: §5月人
+    root: houraizin
+    rank: 32
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 月に住む人間。何度でも蘇るさ
+      skills:
+      - ''
+    gun:
+      guntype: NNG-AAA
+      gunlevel: 3
+  seizin:
+    tag: §5[SZN]
+    real: §5聖人
+    root: gennsinnsin
+    rank: 33
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 聖なる人。奇跡の力が防御にまである。
+      skills:
+      - ''
+    gun:
+      guntype: NNG-AAA
+      gunlevel: 3
+  tennzin:
+    tag: §0[TNZ]
+    real: §0天人
+    root: sennnin
+    rank: 34
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 天界に住む人間。ドM？
+      skills:
+      - ''
+    gun:
+      guntype: GNN-AAA
+      gunlevel: 3
+  kodaizin:
+    tag: §0[KDZ]
+    real: §0古代人
+    root: sennnin
+    rank: 34
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 古代の人間。連続攻撃に耐性を持つ
+      skills:
+      - ''
+    gun:
+      guntype: GNN-AAA
+      gunlevel: 3
+  ennma:
+    tag: §0[ENM]
+    real: §0閻魔
+    root: sibito
+    rank: 35
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 閻魔様。傷つけすぎると断罪してくる
+      skills:
+      - ''
+    gun:
+      guntype: GNN-AAA
+      gunlevel: 3
+  karasutenngu:
+    tag: §7[KTN]
+    real: §7鴉天狗
+    root: tenngu
+    rank: 36
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 上級天狗。低空飛行もスイスイ
+      skills:
+      - ''
+    gun:
+      guntype: YUM-BBB
+      gunlevel: 3
+  syoukaitenngu:
+    tag: §7[STN]
+    real: §7哨戒天狗
+    root: tenngu
+    rank: 36
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 下級天狗。警備が上手
+      skills:
+      - ''
+    gun:
+      guntype: YUM-BBB
+      gunlevel: 3
+  yamakappa:
+    tag: §8[YKP]
+    real: §8山童
+    root: kappa
+    rank: 37
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 山に住む河童。誘導弾的なものを出せる
+      skills:
+      - ''
+    gun:
+      guntype: YUZ-DDD
+      gunlevel: 3
+  sukimayou:
+    tag: §8[SKM]
+    real: §8スキマ妖
+    root: kennyou
+    rank: 38
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: スキマを操る妖怪。BBAは禁句
+      skills:
+      - ''
+    gun:
+      guntype: YUZ-DDD
+      gunlevel: 3
+  egosatori:
+    tag: §a[ESR]
+    real: §aエゴサトリ
+    root: satori
+    rank: 39
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 自己中なサトリ。自己中なので自分だけ無敵
+      skills:
+      - ''
+    gun:
+      guntype: YUS-BBB
+      gunlevel: 3
+  kyozin:
+    tag: §a[KYZ]
+    real: §a巨人
+    root: kobito
+    rank: 40
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 巨大な妖精。すごく・・・大きいです
+      skills:
+      - ''
+    gun:
+      guntype: YUS-BBB
+      gunlevel: 3
+  zigokuyousei:
+    tag: §a[ZGS]
+    real: §a地獄妖精
+    root: kobito
+    rank: 40
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 地獄に住む妖精。すざましく動きが機敏
+      skills:
+      - ''
+    gun:
+      guntype: YUS-BBB
+      gunlevel: 3
+  sikiyou:
+    tag: §5[SKY]
+    real: §5四季妖
+    root: kibito
+    rank: 41
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 四季を司る妖怪。妖精の自然毒のちからがさらに増した
+      skills:
+      - ''
+    gun:
+      guntype: SIR-CCC
+      gunlevel: 3
+  kinnima:
+    tag: §b[KNM]
+    real: §b禁忌魔
+    root: kyuuketuki
+    rank: 42
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 禁忌を使う悪魔。禁忌の力は強大
+      skills:
+      - ''
+    gun:
+      guntype: AKM-CCC
+      gunlevel: 3
+  kairikirannsin:
+    tag: §3[KRS]
+    real: §3怪力乱神
+    root: oni
+    rank: 43
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 怪力な神様。周りの相手全員に攻撃できる
+      skills:
+      - ''
+    gun:
+      guntype: KAM-DDD
+      gunlevel: 3
+  kizin:
+    tag: §3[KZN]
+    real: §3鬼人
+    root: oni
+    rank: 43
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 人と鬼の間に生まれた者。攻撃を跳ね返す。
+      skills:
+      - ''
+    gun:
+      guntype: KAM-DDD
+      gunlevel: 3
+  yumekui:
+    tag: §5[YMK]
+    real: §5夢喰
+    root: hannrei
+    rank: 44
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 霊力を食べる霊。足りない霊力は相手の命で代用
+      skills:
+      - ''
+    gun:
+      guntype: SIR-CCC
+      gunlevel: 3
+  saigyouyou:
+    tag: §5[SGY]
+    real: §5西行妖
+    root: hannrei
+    rank: 44
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 白玉楼に生えてるのとは別物。死んだときに道連れにする蝶を放つ
+      skills:
+      - ''
+    gun:
+      guntype: SIR-CCC
+      gunlevel: 3
+  zibakurei:
+    tag: §5[ZBR]
+    real: §5地縛霊
+    root: onnryou
+    rank: 45
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 幻想郷に縛られている霊。恨みの力が増大した
+      skills:
+      - ''
+    gun:
+      guntype: SIR-CCC
+      gunlevel: 3
+  kyourei:
+    tag: §5[KUR]
+    real: §5狂霊
+    root: onnryou
+    rank: 45
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 狂った霊。HPによって強さが変わる
+      skills:
+      - ''
+    gun:
+      guntype: SIR-CCC
+      gunlevel: 3
+  sinnrei:
+    tag: §a[SNR]
+    real: §a神霊
+    root: sourei
+    rank: 39
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 欲が具現化した霊。幻想郷中に霊をばらまく
+      skills:
+      - ''
+    gun:
+      guntype: YUS-BBB
+      gunlevel: 3
+  gyokuto:
+    tag: §8[GKT]
+    real: §8玉兎
+    root: zyuuzin
+    rank: 46
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 月の兎。狙撃能力が高い
+      skills:
+      - ''
+    gun:
+      guntype: YUZ-DDD
+      gunlevel: 3
+  sinnzyuu:
+    tag: §8[SNZ]
+    real: §8神獣
+    root: zyuuzin
+    rank: 46
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 神の獣。相手を硬直させる
+      skills:
+      - ''
+    gun:
+      guntype: YUZ-DDD
+      gunlevel: 3
+  kyuubi:
+    tag: §8[KUB]
+    real: §8九尾
+    root: siki
+    rank: 47
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 尻尾が⑨本ある狐。ｼｯﾎﾟﾓﾌﾓﾌ
+      skills:
+      - ''
+    gun:
+      guntype: YUZ-DDD
+      gunlevel: 3
+  ryuugyo:
+    tag: §7[RYG]
+    real: §7龍魚
+    root: ninngyo
+    rank: 48
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 龍になった人魚。水の中にいる敵を感電させる技を持つ
+      skills:
+      - ''
+    gun:
+      guntype: YUM-BBB
+      gunlevel: 3
+  tyuuousin:
+    tag: §3[TYS]
+    real: §3中央神
+    root: houzyousin
+    rank: 49
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 中央にいる神様。ぼっち涙目
+      skills:
+      - ''
+    gun:
+      guntype: KAM-DDD
+      gunlevel: 3
+  dotyakusin:
+    tag: §3[DYS]
+    real: §3土着神
+    root: houzyousin
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 自然信仰で生まれた神様。祟り神でもある
+      skills:
+      - ''
+    gun:
+      guntype: KAM-DDD
+      gunlevel: 3
+  tukumogami:
+    tag: §b[TKM]
+    real: §b付喪神
+    root: yakusin
+    rank: 50
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 道具に神が宿ったもの。殴られると強化される
+      skills:
+      - ''
+    gun:
+      guntype: AKM-CCC
+      gunlevel: 3
+  sinigami:
+    tag: §b[SNG]
+    real: §b死神
+    root: yakusin
+    rank: 50
+    evol:
+      needpoint: 50
+      costitemid: 0
+      costitemmeta: 0
+      costitemamount: 0
+      rewarditemid: 0
+      rewarditemmeta: 0
+      rewarditemamount: 0
+    intro:
+      story: 死を司る神様。死んだ敵の周りを道連れにする
+      skills:
+      - ''
+    gun:
+      guntype: AKM-CCC
+      gunlevel: 3
+user:
+  ccc54a6c-1c87-4064-a299-90857fb16a5c:
+    name: noteumaple
+    point: 50
+    race: sennnin
+    spilit: 31.0
