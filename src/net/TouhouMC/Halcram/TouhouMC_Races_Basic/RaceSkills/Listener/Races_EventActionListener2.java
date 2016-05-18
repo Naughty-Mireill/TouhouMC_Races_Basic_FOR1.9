@@ -55,7 +55,7 @@ public class Races_EventActionListener2 implements Listener {
 	static FileConfiguration conf = TouhouMC_Races_Basic.conf;
 
 	//コンストラクタ リスナー登録
-	public void Races_EventActionListener(TouhouMC_Races_Basic plugin){
+	public Races_EventActionListener2(TouhouMC_Races_Basic plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 
