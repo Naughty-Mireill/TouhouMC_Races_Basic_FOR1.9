@@ -68,19 +68,19 @@ implements Listener {
     public static void global_charge_mana(Player pl, Plugin plugin, String pluginpre, PlayerInteractEvent event) {
         Material dust_is_ok = pl.getInventory().getItemInMainHand().getType();
         if (((MetadataValue)pl.getMetadata("spilituse").get(0)).asDouble() != 0.0) {
-            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, plugin);
+            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 0);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
             pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.WHITE + "\u970a\u529b\u30ce\u30fc\u30de\u30eb");
         } else if (dust_is_ok == Material.SUGAR) {
-            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, plugin);
+            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 1);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
             pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.AQUA + "\u970a\u529b\u6d88\u8cbb\u5c0f");
         } else if (dust_is_ok == Material.SULPHUR) {
-            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, plugin);
+            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 3);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
             pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.DARK_GRAY + "\u970a\u529b\u6d88\u8cbb\u5927");
         } else if (dust_is_ok == Material.GLOWSTONE_DUST) {
-            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, plugin);
+            FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, -2);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
             pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.YELLOW + "\u970a\u529b\u56de\u5fa9\u4e2d");
         }
