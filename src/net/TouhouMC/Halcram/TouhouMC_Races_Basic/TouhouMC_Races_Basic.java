@@ -844,7 +844,7 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 	}
 
 	public void registerEventListener(){
-		new Races_EventActionListener2();
+		new Races_EventActionListener2(this);
 		new Races_SkillMiscListener(this);
 	}
 
