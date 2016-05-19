@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import net.TouhouMC.Halcram.TouhouMC_Races_Basic.RaceSkills.Listener.Races_EventActionListener2;
 import net.TouhouMC.Halcram.TouhouMC_Races_Basic.RaceSkills.Listener.Races_SkillMiscListener;
+import net.TouhouMC.Halcram.TouhouMC_Races_Basic.RaceSkills.Schedule.Nametag_Schedule;
 import net.TouhouMC.Halcram.TouhouMC_Races_Basic.RaceSkills.Schedule.Races_Schedule;
 
 import org.bukkit.Bukkit;
@@ -73,6 +74,8 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 			if (Bukkit.getPluginManager().getPlugin("NametagEdit") != null){
 				nametagedit_hook = true;
 				logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠NametagEditÇ∆òAågÇµÇ‹ÇµÇΩ");
+				Nametag_Schedule name_schedule = new Nametag_Schedule();
+				name_schedule.runname(plugin0,thpre0);
 			}
 		}
 		if (this.getConfig().getBoolean("enable-ScoreboardAPI-listboard-hook")){

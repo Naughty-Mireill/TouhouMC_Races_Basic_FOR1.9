@@ -510,7 +510,7 @@ public class Races_EventActionListener2 implements Listener {
 				///妖精のイリュージョン（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("satori") || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou")){
 					if(handitem == Material.WOOD_SPADE && (pl.isSneaking())){
-						if(Races_Global.magic_iscastable(pl , mana, "金の槍を掲げた！")){
+						if(Races_Global.magic_iscastable(pl , mana, "木の槍を掲げた！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
 							TouhouMC_Races_Basic.SaveTMCConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 1);
@@ -1339,38 +1339,11 @@ public class Races_EventActionListener2 implements Listener {
 		}else{
 			pl.setMaxHealth(100D);
 		}
-		conf.set("user." + pl.getUniqueId() + ".spilit", 200D);
+		conf.set("user." + pl.getUniqueId() + ".spilit", 250D);
+		MetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 0) ;
+		pl.setMetadata("spilituse", spilituse);
+		
 	}
 
-	//ここから先 追加
-	//釣りをキャンセル
-	@EventHandler
-	public void onPlayerFishing(PlayerFishEvent e){
-		if (!e.getPlayer().hasPermission("tmcr.fishing"))
-		{
-			e.getPlayer().sendMessage(pluginpre + ChatColor.RED + "プラグインにより釣りはできません！");
-			e.setCancelled(true);
-		}
-	}
-	//エンチャントをキャンセル
-	@EventHandler
-	public void onEnchantments(EnchantItemEvent e){
-		if (!e.getEnchanter().hasPermission("tmcr.enchanter"))
-		{
-			e.getEnchanter().sendMessage(pluginpre + ChatColor.RED + "プラグインによりエンチャントはできません！");
-			e.setCancelled(true);
-		}
-	}
-	//金床をキャンセル
-	@EventHandler
-	public void onAnvil(PlayerInteractEvent e){
-		if (e.getAction() == Action.RIGHT_CLICK_BLOCK)
-		{
-			if (e.getClickedBlock().getType() == Material.ANVIL && !e.getPlayer().hasPermission("tmcr.enchanter"))
-			{
-				e.getPlayer().sendMessage(pluginpre + ChatColor.RED + "プラグインにより金床の使用はできません！！");
-				e.setCancelled(true);
-			}
-		}
-	}
+	//ここから先
 }

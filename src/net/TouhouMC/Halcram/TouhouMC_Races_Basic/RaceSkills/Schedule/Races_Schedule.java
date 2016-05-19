@@ -58,11 +58,11 @@ public class Races_Schedule {
 					
 						}, 10L);
 					}
-					if ((conf.getDouble("user." + player.getUniqueId() + ".spilit") < 100.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() == 0.0D)){
+					if ((conf.getDouble("user." + player.getUniqueId() + ".spilit") < 500.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() == 0.0D)){
 						conf.set("user." + player.getUniqueId() + ".spilit", Double.valueOf(conf.getDouble("user." + player.getUniqueId() + ".spilit") + 1.0D));
 						if (player.isSneaking() && conf.getDouble("user." + player.getUniqueId() + ".spilit") % 5 == 0) player.sendMessage(thrpre0 + ChatColor.GREEN + "霊力：" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(player.getUniqueId()).append(".spilit").toString()));
-						if (conf.getDouble("user." + player.getUniqueId() + ".spilit") >= 100.0D) player.sendMessage(thrpre0 + ChatColor.GREEN + "霊力：" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(player.getUniqueId()).append(".spilit").toString()));
-					}else if ((conf.getDouble("user." + player.getUniqueId() + ".spilit") < 100.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() < 0.0D)){
+						if (conf.getDouble("user." + player.getUniqueId() + ".spilit") >= 500.0D) player.sendMessage(thrpre0 + ChatColor.GREEN + "霊力：" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(player.getUniqueId()).append(".spilit").toString()));
+					}else if ((conf.getDouble("user." + player.getUniqueId() + ".spilit") < 500.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() < 0.0D)){
 						conf.set("user." + player.getUniqueId() + ".spilit", Double.valueOf(conf.getDouble("user." + player.getUniqueId() + ".spilit") - (player.getMetadata("spilituse").get(0)).asDouble()));
 						player.playSound(player.getLocation(), Sound.BLOCK_NOTE_PLING, 1.0F, -1.0F);
 						if (player.isSneaking() && conf.getDouble("user." + player.getUniqueId() + ".spilit") % 5 == 0) player.sendMessage(thrpre0 + ChatColor.GREEN + "霊力：" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(player.getUniqueId()).append(".spilit").toString()));
@@ -81,34 +81,11 @@ public class Races_Schedule {
 								}
 							}
 						}
-						String race = conf.getString("user." + player.getUniqueId() + ".race").toString();
-						if ((race.contains("yamakappa")) || (race.contains("karasutenngu")) || (race.contains("syoukaitenngu")) || (race.contains("youma")) || (race.contains("kappa")) || (race.contains("tenngu"))){
-							if (!player.isDead()) {
-								if (player.getHealth() > player.getMaxHealth() - 2.0D) {
-									player.setHealth(player.getMaxHealth());
-								} else {
-									player.setHealth(2.0D + player.getHealth());
-								}
-							}
-						}else if (race.contains("sukimayou") || race.contains("kennyou")){
-							if ((!player.isDead()) && (conf.getDouble("user." + player.getUniqueId() + ".spilit") >= 20.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() > 0.0D)){
-								if (player.getHealth() > player.getMaxHealth() - 5.0D) {
-									player.setHealth(player.getMaxHealth());
-								} else {
-									player.setHealth(5.0D + player.getHealth());
-								}
-							}
-						}else if (!player.isDead()) {
-							if (player.getHealth() > player.getMaxHealth() - 1.0D) {
-								player.setHealth(player.getMaxHealth());
-							} else {
-								player.setHealth(1.0D + player.getHealth());
-							}
-						}
+
 					}
 				}
 			}
-		}.runTaskTimer(plugin0, 0, 20L);
+		}.runTaskTimer(plugin0, 0, 10L);
     }
 
     public void run2(Plugin plugin0, final String thrpre0) {
@@ -299,7 +276,33 @@ public class Races_Schedule {
 						}
 					}
 				}
+				for (final Player player : Bukkit.getOnlinePlayers()){
+				String race = conf.getString("user." + player.getUniqueId() + ".race").toString();
+				if ((race.contains("yamakappa")) || (race.contains("karasutenngu")) || (race.contains("syoukaitenngu")) || (race.contains("youma")) || (race.contains("kappa")) || (race.contains("tenngu"))){
+					if (!player.isDead()) {
+						if (player.getHealth() > player.getMaxHealth() - 2.0D) {
+							player.setHealth(player.getMaxHealth());
+						} else {
+							player.setHealth(2.0D + player.getHealth());
+						}
+					}
+				}else if (race.contains("sukimayou") || race.contains("kennyou")){
+					if ((!player.isDead()) && (conf.getDouble("user." + player.getUniqueId() + ".spilit") >= 20.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() > 0.0D)){
+						if (player.getHealth() > player.getMaxHealth() - 5.0D) {
+							player.setHealth(player.getMaxHealth());
+						} else {
+							player.setHealth(5.0D + player.getHealth());
+						}
+					}
+				}else if (!player.isDead()) {
+					if (player.getHealth() > player.getMaxHealth() - 1.0D) {
+						player.setHealth(player.getMaxHealth());
+					} else {
+						player.setHealth(1.0D + player.getHealth());
+					}
+				}
+				}	
 			}
-		}.runTaskTimer(plugin0, 0, 60L);
+		}.runTaskTimer(plugin0, 0, 100L);
     }
 }

@@ -24,7 +24,7 @@ public class Races_YUS extends JavaPlugin {
 	///アクティブスキル系
 	//移動スキル系
 	public static void yousei_feather(Player pl, Plugin plugin){
-		pl.setVelocity(pl.getLocation().getDirection().multiply(1.1D));
+		pl.setVelocity(pl.getLocation().getDirection().multiply(0.8D));
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_SHOOT, 1.0F, 1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.TILE_DUST, 133, 1);
 	}

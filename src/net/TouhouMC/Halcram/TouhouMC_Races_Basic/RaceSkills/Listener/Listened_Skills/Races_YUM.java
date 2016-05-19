@@ -30,13 +30,13 @@ public class Races_YUM extends JavaPlugin {
 		if (boost > 0 && boost <= 2){
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0F, 1.0F);
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0F, 0.0F);
-			pl.setVelocity(pl.getLocation().getDirection().multiply(8.0D));
+			pl.setVelocity(pl.getLocation().getDirection().multiply(5.0D));
 			//pl.setFallDistance(-30F);
 			//イベントリスナーへ移行 (EntityDamageEvent)
 		}else {
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0F, 0.0F);
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0F, -1.0F);
-			pl.setVelocity(pl.getLocation().getDirection().multiply(14.0D));
+			pl.setVelocity(pl.getLocation().getDirection().multiply(10.0D));
 			//pl.setFallDistance(-10F);
 			//イベントリスナーへ移行 (EntityDamageEvent)
 		}
@@ -167,9 +167,9 @@ public class Races_YUM extends JavaPlugin {
 		///移動スキル系
 		if (!pl.isOnGround()){
 			if (boost > 0 && boost <= 2){
-				pl.setVelocity(new Vector(pl.getLocation().getDirection().multiply(1.5D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(0.7D).getZ()));
+				pl.setVelocity(new Vector(pl.getLocation().getDirection().multiply(0.5D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(0.5D).getZ()));
 			}else{
-				pl.setVelocity(new Vector(pl.getLocation().getDirection().multiply(0.7D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(0.4D).getZ()));
+				pl.setVelocity(new Vector(pl.getLocation().getDirection().multiply(0.9D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(0.9D).getZ()));
 			}
 		}
 	}
