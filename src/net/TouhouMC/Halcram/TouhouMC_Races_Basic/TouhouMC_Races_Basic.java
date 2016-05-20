@@ -64,34 +64,9 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 		schedule.run2(plugin0,thpre0);
 		schedule.run3(plugin0,thpre0);
 		//ÉtÉbÉNê›íË
-		if (this.getConfig().getBoolean("enable-CrackShot-shooter-hook")){
-			if (Bukkit.getPluginManager().getPlugin("CrackShot") != null){
-				crackshot_hook = true;
-				logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠CrackShotÇ∆òAågÇµÇ‹ÇµÇΩ");
-			}
-		}
-		if (this.getConfig().getBoolean("enable-NametagEdit-tab-hook")){
-			if (Bukkit.getPluginManager().getPlugin("NametagEdit") != null){
-				nametagedit_hook = true;
-				logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠NametagEditÇ∆òAågÇµÇ‹ÇµÇΩ");
-				Nametag_Schedule name_schedule = new Nametag_Schedule();
-				name_schedule.runname(plugin0,thpre0);
-			}
-		}
-		if (this.getConfig().getBoolean("enable-ScoreboardAPI-listboard-hook")){
-			if (Bukkit.getPluginManager().getPlugin("ScoreboardAPI") != null){
-				scoreboardapi_hook = true;
-				logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠ScoreboardAPIÇ∆òAågÇµÇ‹ÇµÇΩ");
-			}
-		}
-		if (this.getConfig().getBoolean("enable-BarAPI-manabar-hook")){
-			if (Bukkit.getPluginManager().getPlugin("BarAPI") != null){
-				barapi_hook = true;
-				logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠BarAPIÇ∆òAågÇµÇ‹ÇµÇΩ");
-			}
-		}
+		logger.info(tmc_Races_pre + pdfFile.getVersion() + "ÇÕê≥ÇµÇ≠NametagEditÇ∆òAågÇµÇ‹ÇµÇΩ");
+		registerNameTagListener();
 	}
-
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String commandlabel, String[] args){
 		if(sender instanceof Player){
@@ -850,7 +825,12 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 		new Races_EventActionListener2(this);
 		new Races_SkillMiscListener(this);
 	}
-
+	
+	public void registerNameTagListener(){
+		new Nametag_Schedule(this);
+		Nametag_Schedule.runname(plugin, tmc_Races_pre);
+	}
+	
 	public static void SaveTMCConfig(){
 		try {
 			conf.save(configfile);

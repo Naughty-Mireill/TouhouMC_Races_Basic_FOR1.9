@@ -31,12 +31,10 @@ import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.enchantment.EnchantItemEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -66,7 +64,8 @@ public class Races_EventActionListener2 implements Listener {
 		//‘O’uŽŒ‚ÉŽí‘°–¼‚ð‰Á‚¦‚é
 		Player pl = e.getPlayer();
 		String format = e.getFormat();
-		if (conf.contains("user." + pl.getUniqueId())){
+		if(conf.getString("user." + pl.getUniqueId()) != null)
+		{
 			boolean existrace = false;
 			String inforace = "";
 			for (String race : conf.getConfigurationSection("race").getKeys(false)) {
