@@ -11,12 +11,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.nametagedit.plugin.NametagManager;
 import com.nametagedit.plugin.api.NametagAPI;
 
 public class Nametag_Schedule implements Listener{
 	public static File config = TouhouMC_Races_Basic.configfile;
 	public static FileConfiguration conf = TouhouMC_Races_Basic.conf;
-	public static NametagAPI nta;
+	public static NametagAPI nta = new NametagAPI(new NametagManager());
 	
 	//コンストラクタ リスナー登録
 	public Nametag_Schedule(TouhouMC_Races_Basic plugin){
