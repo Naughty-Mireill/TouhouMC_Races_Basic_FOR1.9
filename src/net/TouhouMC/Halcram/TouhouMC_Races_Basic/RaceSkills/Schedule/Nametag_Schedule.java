@@ -35,7 +35,7 @@ public class Nametag_Schedule implements Listener{
 						String realrace = conf.getString("race." + race + ".tag");
 						if (realrace == null ) realrace = conf.getString("user." + player.getUniqueId() + ".race");
 						nta.setNametag(player.getPlayerListName(), realrace, "");
-						player.setPlayerListName(realrace + player.getPlayerListName() );
+						player.setPlayerListName(realrace + player.getName() );
 					}
 				}
 			}
