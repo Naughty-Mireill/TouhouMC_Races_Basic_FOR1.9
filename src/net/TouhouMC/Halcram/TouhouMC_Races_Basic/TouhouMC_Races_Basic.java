@@ -828,7 +828,7 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 	
 	public void registerNameTagListener(){
 		new Nametag_Schedule(this);
-		Nametag_Schedule.runname(plugin, tmc_Races_pre);
+		Nametag_Schedule.runname(plugin0, tmc_Races_pre);
 	}
 	
 	public static void SaveTMCConfig(){
