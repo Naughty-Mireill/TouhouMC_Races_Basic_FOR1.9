@@ -5,6 +5,7 @@ import java.io.File;
 import net.TouhouMC.Halcram.TouhouMC_Races_Basic.TouhouMC_Races_Basic;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -34,8 +35,8 @@ public class Nametag_Schedule implements Listener{
 						String race = conf.getString("user." + player.getUniqueId() + ".race").toString();
 						String realrace = conf.getString("race." + race + ".tag");
 						if (realrace == null ) realrace = conf.getString("user." + player.getUniqueId() + ".race");
-						nta.setNametag(player.getPlayerListName(), realrace, "");
-						player.setPlayerListName(realrace + player.getName() );
+						nta.setNametag(player.getName(), realrace, "");
+						player.setPlayerListName(realrace + ChatColor.WHITE+ player.getName() );
 					}
 				}
 			}

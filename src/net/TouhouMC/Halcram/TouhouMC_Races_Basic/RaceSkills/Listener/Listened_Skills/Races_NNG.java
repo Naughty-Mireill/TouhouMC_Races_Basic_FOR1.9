@@ -47,7 +47,7 @@ public class Races_NNG extends JavaPlugin {
 	//魔法
 	//土魔法
 	public static void magic_dirt(final Player pl,final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "土の魔法を唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "土の魔法を唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_PISTON_EXTEND, 1.0F, -1.0F);
 		List<Entity> enemys = pl.getNearbyEntities(12.0D, 12.0D, 12.0D);
 		for (Entity enemy : enemys) {
@@ -69,14 +69,14 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 60L);
 	}
 
 	//風魔法
 	public static void magic_wind(final Player pl, final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "風の魔法を唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "風の魔法を唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0F, 1.0F);
 		pl.setVelocity(pl.getVelocity().add(new Vector(0.5D, 3.0D, 0.5D)));
 		pl.setFallDistance(-40.0F);
@@ -86,14 +86,14 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 60L);
 	}
 
 	//火魔法
 	public static void magic_fire(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "火の魔法を唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "火の魔法を唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_FIRE_AMBIENT, 1, 0);
 		Location location =pl.getEyeLocation();
 		float pitch = location.getPitch() / 180.0F * 3.1415927F;
@@ -115,14 +115,14 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		},80L);
 	}
 
 	//水魔法
 	public static void magic_water(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "水の魔法を唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "水の魔法を唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_MAGMACUBE_JUMP, 1, 0);
 		List<Entity> enemys=pl.getNearbyEntities(8D, 8D, 8D);
 		enemys.add(pl);
@@ -151,7 +151,7 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
 		, 180L);
@@ -159,7 +159,7 @@ public class Races_NNG extends JavaPlugin {
 
 	//雷魔法
 	public static void magic_thunder(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_PURPLE + "雷の魔法を唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_PURPLE + "雷の魔法を唱えた！");
 		pl.setNoDamageTicks(20);
 		pl.getWorld().spawnEntity(pl.getLocation(), EntityType.LIGHTNING);
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, true) ;
@@ -168,7 +168,7 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		},180L);
 	}
@@ -177,12 +177,12 @@ public class Races_NNG extends JavaPlugin {
 	public static void magic_heal(final Player pl, final Plugin plugin) {
 		MetadataValue casting = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("casting", casting);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "棒を構えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "棒を構えた！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_ANVIL_LAND, 1, 1);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.WITCH_MAGIC, 1, 1);
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "自己治癒を使った！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "自己治癒を使った！");
 				pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_LAVA_POP, 1, 1);
 				if (pl.getHealth() + 8D > pl.getMaxHealth()){
 					pl.setHealth(pl.getMaxHealth());
@@ -196,7 +196,7 @@ public class Races_NNG extends JavaPlugin {
 					public void run(){
 					  MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 					  pl.setMetadata("using-magic", usingmagic);
-					  pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+					  pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 					}
 				}, 20L);
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
@@ -209,7 +209,7 @@ public class Races_NNG extends JavaPlugin {
 	
 	//ピッケル＝メテオ魔法
 	public static void magic_meteor(final Player pl,final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "メテオを唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "メテオを唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0F, 0.0F);
 		List<Entity> enemys = pl.getNearbyEntities(32.0D, 32.0D, 32.0D);
 		for (Entity enemy : enemys) {
@@ -239,14 +239,14 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 180L);
 	}
 
 	//シャベル＝フェザーフライ魔法
 	public static void magic_flyfeather(final Player pl,final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "フェザーフライを唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "フェザーフライを唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_WITHER_SHOOT, 1.0F, 0.0F);
 		pl.setAllowFlight(true);
 		pl.setFlying(true);
@@ -256,14 +256,14 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				pl.setFlying(false);
 				pl.setAllowFlight(false);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱の効果が終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱の効果が終わりました");
 				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 					public void run(){
 						MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 						pl.setMetadata("using-magic", usingmagic);
 						pl.setFlying(false);
 						pl.setAllowFlight(false);
-						pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+						pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 					}
 				}, 200L);
 			}
@@ -272,7 +272,7 @@ public class Races_NNG extends JavaPlugin {
 	
 	//斧＝タイフーン
 	public static void magic_tyhoon(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "タイフーンを唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "タイフーンを唱えた！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_PORTAL_AMBIENT, 3, 1);
 		List<Entity> enemys=pl.getNearbyEntities(20D, 20D, 20D);
 		for (Entity enemy : enemys){
@@ -294,7 +294,7 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
 		, 150L);
@@ -304,12 +304,12 @@ public class Races_NNG extends JavaPlugin {
 	public static void magic_invincible(final Player pl, final Plugin plugin) {
 		MetadataValue casting = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("casting", casting);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "インビンシブルを唱えた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "インビンシブルを唱えた！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_ANVIL_BREAK, 1, 0);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.WITCH_MAGIC, 1, 1);
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "無敵になった！！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "無敵になった！！");
 				pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERMEN_STARE, 1, 0);
 				pl.setNoDamageTicks(200);
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, true) ;
@@ -318,7 +318,7 @@ public class Races_NNG extends JavaPlugin {
 					public void run(){
 					  MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 					  pl.setMetadata("using-magic", usingmagic);
-					  pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱の効果及びクールダウンが終わりました");
+					  pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱の効果及びクールダウンが終わりました");
 					}
 				}, 200L);
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
@@ -331,7 +331,7 @@ public class Races_NNG extends JavaPlugin {
 	public static void mugen_one_gate_put(final Player pl, final Plugin plugin) {
 		MetadataValue casting = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("casting", casting);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "現在値に夢現の狭間を作った！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "現在値に夢現の狭間を作った！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERMEN_AMBIENT, 1, 2);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.WITCH_MAGIC, 1, 1);
 		
@@ -350,7 +350,7 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 180L);
 	}
@@ -358,7 +358,7 @@ public class Races_NNG extends JavaPlugin {
 	public static void mugen_one_gate_use(final Player pl, final Plugin plugin) {
 		MetadataValue casting = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("casting", casting);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "夢現の狭間を使った！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "夢現の狭間を使った！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERMEN_HURT, 1, 2);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.WITCH_MAGIC, 1, 1);
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
@@ -375,22 +375,22 @@ public class Races_NNG extends JavaPlugin {
 					else
 					{
 						pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_DEATH, 1, 2);
-						pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "しかし違う時空世界にはつながらなかった！！");
+						pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "しかし違う時空世界にはつながらなかった！！");
 					}
 					pl.removeMetadata("mugen_locw", plugin);
 					pl.removeMetadata("mugen_locx", plugin);
 					pl.removeMetadata("mugen_locy", plugin);
 					pl.removeMetadata("mugen_locz", plugin);
-					pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "夢現の狭間を消えた！");
+					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "夢現の狭間を消えた！");
 				}
 				else
 				{
 					pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ENDERDRAGON_DEATH, 1, 2);
-					pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "しかし狭間を作っていなかった！");
+					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "しかし狭間を作っていなかった！");
 				}
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱の効果とクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱の効果とクールダウンが終わりました");
 			}
 		}, 100L);
 	}
@@ -398,7 +398,7 @@ public class Races_NNG extends JavaPlugin {
 	//TODO 月人
 	//蘇生率アップ
 	public static void tukibito_regen_chance_boost(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "自身の蘇生確率を大幅に上げた！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "自身の蘇生確率を大幅に上げた！！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 0);
 		MetadataValue regen_chance_boost = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("regen_chance_boost", regen_chance_boost);
@@ -406,7 +406,7 @@ public class Races_NNG extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
 		, 60L);
@@ -483,7 +483,7 @@ public class Races_NNG extends JavaPlugin {
 		if (event.getDamage() >= pl.getHealth() && reverse > chance){
 			plugin.getConfig().set(plugin.getConfig().getString("user." + pl.getUniqueId() + ".spilit"),plugin.getConfig().getInt("user." + pl.getUniqueId() + ".spilit") - 30D);
 			pl.setHealth(pl.getMaxHealth());
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.AQUA + "貴方は不死の力を使い蘇った！！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.AQUA + "貴方は不死の力を使い蘇った！！");
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, -1);
 			event.setDamage(0D);
 		}
@@ -494,7 +494,7 @@ public class Races_NNG extends JavaPlugin {
 		if (event.getDamage() >= pl.getHealth() && reverse > 0.6){
 			plugin.getConfig().set(plugin.getConfig().getString("user." + pl.getUniqueId() + ".spilit"),plugin.getConfig().getInt("user." + pl.getUniqueId() + ".spilit") - 30D);
 			pl.setHealth(pl.getMaxHealth());
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.AQUA + "貴方は不死の力を使い蘇った！！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.AQUA + "貴方は不死の力を使い蘇った！！");
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, -1);
 			event.setDamage(0D);
 		}

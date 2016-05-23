@@ -44,7 +44,7 @@ public class Races_YUM extends JavaPlugin {
 
 	///攻撃スキル系
 	public static void youma_golden_shockwave(Player pl, Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "金の斧で全てを吹き飛ばす！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "金の斧で全てを吹き飛ばす！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, 1.0F, 0.0F);
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 0.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.EXPLOSION_HUGE, 1, 1);
@@ -65,7 +65,7 @@ public class Races_YUM extends JavaPlugin {
 	}
 
 	public static void kappa_stone_tnt(Player pl){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "石の斧でTNTを投げた！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "石の斧でTNTを投げた！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_LINGERINGPOTION_THROW, 1.0F, 0.0F);
 		Location location = pl.getEyeLocation();
 		float pitch = location.getPitch() / 180.0F * 3.1415927F;
@@ -84,7 +84,7 @@ public class Races_YUM extends JavaPlugin {
 	}
 
 	public static void youma_wooden_upper(Player pl, Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "斧で地面を叩き上げた！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "斧で地面を叩き上げた！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, 2.0F, 0.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.EXPLOSION_LARGE, 1, 1);
 		List<Entity> enemys = pl.getNearbyEntities(7.0D, 7.0D, 7.0D);
@@ -124,7 +124,7 @@ public class Races_YUM extends JavaPlugin {
 	
 	//TODO スキマ妖
 	public static void sukima_sukima_warp(Player pl, Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "スキマを開き自身の殺人に出会おう！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "スキマを開き自身の殺人に出会おう！");
 		if (pl.getKiller() != null)
 		{
 		pl.teleport(pl.getKiller());
@@ -137,13 +137,13 @@ public class Races_YUM extends JavaPlugin {
 		}
 		else
 		{
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "いなかった！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "いなかった！");
 		}
 	}
 	
 	//TODO 山河童
 	public static void yamakappa_thown_creeper(Player pl){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "いけ！クリーパー！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "いけ！クリーパー！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CREEPER_DEATH, 1.0F, 1.0F);
 		Location location = pl.getEyeLocation();
 		float pitch = location.getPitch() / 180.0F * 3.1415927F;

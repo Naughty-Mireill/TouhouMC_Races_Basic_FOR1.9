@@ -130,17 +130,17 @@ public class Races_SkillMiscListener implements Listener {
 								conf.set("user." + p.getUniqueId() + ".spilit", Double.valueOf(conf.getInt("user." + p.getUniqueId() + ".spilit") - 30.0D));
 								if (conf.getInt("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit") > 100) {
 									conf.set("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit", Double.valueOf(100.0D));
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 								}
 							}else{
 								conf.set("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit", Integer.valueOf(conf.getInt("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit") + conf.getInt("user." + p.getUniqueId() + ".spilit")));
 								conf.set("user." + p.getUniqueId() + ".spilit", Integer.valueOf(0));
 								if (conf.getInt("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit") > 100) {
 									conf.set("user." + UUID.fromString(((MetadataValue)((EntityDamageByEntityEvent) e).getDamager().getMetadata("hannrei-curseball").get(0)).asString()) + ".spilit", Double.valueOf(100.0D));
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 								}
 							}
-							p.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_PURPLE + "霊力を吸い取られた！！！");
+							p.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_PURPLE + "霊力を吸い取られた！！！");
 						}
 					}
 				}else if((Player)e.getEntity() == snowball.getShooter()){

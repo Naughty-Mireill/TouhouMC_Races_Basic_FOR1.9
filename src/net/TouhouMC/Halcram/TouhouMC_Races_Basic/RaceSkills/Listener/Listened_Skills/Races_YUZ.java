@@ -31,7 +31,7 @@ public class Races_YUZ extends JavaPlugin {
 	public static void yuz_summon_wolf(final Player pl, final Plugin plugin, PlayerInteractEvent event){
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
 		pl.setMetadata("using-magic", usingmagic);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "狼の群れを呼び出すウオオオーン");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "狼の群れを呼び出すウオオオーン");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_WHINE, 4.0F, -1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.BLAZE_SHOOT, 1, 1);
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
@@ -48,7 +48,7 @@ public class Races_YUZ extends JavaPlugin {
 					n++;
 				}
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_GROWL, 1.0F, 1.0F);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "「ウオン」「ウオン」「ウオン」");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ウオン」「ウオン」「ウオン」");
 			}
 		}, 40L);
 	}
@@ -57,7 +57,7 @@ public class Races_YUZ extends JavaPlugin {
 	public static void siki_summon_oc(final Player pl, final Plugin plugin, PlayerInteractEvent event){
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
 		pl.setMetadata("using-magic", usingmagic);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "愛くるしい猫達を呼び出すニャア");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "愛くるしい猫達を呼び出すニャア");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_AMBIENT, 4.0F, -1.0F);
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
@@ -73,7 +73,7 @@ public class Races_YUZ extends JavaPlugin {
 					n++;
 				}
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1.0F, 1.0F);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "「ニャア」「ニャア」「ニャア」");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ニャア」「ニャア」「ニャア」");
 			}
 		}, 40L);
 	}
@@ -82,7 +82,7 @@ public class Races_YUZ extends JavaPlugin {
 	public static void kyuubi_summon_horse(final Player pl, final Plugin plugin, PlayerInteractEvent event){
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
 		pl.setMetadata("using-magic", usingmagic);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "律儀正しい馬を呼び出すヒヒーン");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "律儀正しい馬を呼び出すヒヒーン");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_HORSE_GALLOP, 4.0F, 0.0F);
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
@@ -95,7 +95,7 @@ public class Races_YUZ extends JavaPlugin {
 				horse.setMetadata("horseowner", horseowner);
 				horse.setCustomName(pl.getName() + "'s horse");
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_HORSE_SADDLE, 1.0F, -1.0F);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "「ひゅい！？（違）」");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ひゅい！？（違）」");
 			}
 		}, 100L);
 	}
@@ -109,7 +109,7 @@ public class Races_YUZ extends JavaPlugin {
 			{
 				if (!event.getMount().getMetadata("horseowner").get(0).asString().equalsIgnoreCase(event.getEntity().getUniqueId().toString()))
 				{
-					((Player)event.getEntity()).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "馬はあなたが所有者であることを否定した！");
+					((Player)event.getEntity()).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "馬はあなたが所有者であることを否定した！");
 					event.setCancelled(true);
 				}
 			}
@@ -119,41 +119,41 @@ public class Races_YUZ extends JavaPlugin {
 	//攻撃スキル系
 	//霊力消費で強化
 	public static void youzyu_gainenergy(Player pl, final Plugin plugin, final PlayerInteractEvent event){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "霊力で自身の能力増強を図った！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "霊力で自身の能力増強を図った！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_BURN, 1.0F, 1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.MOBSPAWNER_FLAMES, 1, 1);
 		double ram = Math.random();
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + ram);
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + ram);
 		if (ram < 0.1D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "失敗！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "失敗！");
 		}else if (ram < 0.2D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "移動の速度がさらに上がった！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "移動の速度がさらに上がった！");
 			pl.removePotionEffect(PotionEffectType.SPEED);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 1));
 		}else if (ram < 0.3D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "跳躍力が上がった！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "跳躍力が上がった！");
 			pl.removePotionEffect(PotionEffectType.JUMP);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 300, 0));
 		}else if (ram < 0.4D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "振りの速さが上がった！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "振りの速さが上がった！");
 			pl.removePotionEffect(PotionEffectType.FAST_DIGGING);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 250, 0));
 		}else if (ram < 0.5D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.LIGHT_PURPLE + "軽い再生能力を得た！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "軽い再生能力を得た！");
 			pl.removePotionEffect(PotionEffectType.REGENERATION);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 300, 0));
 		}else if (ram < 0.6D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "マゾな精神を得た?の?");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "マゾな精神を得た?の?");
 			pl.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 250, 1));
 		}else if (ram < 0.7D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "サゾな精神を得た！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "サゾな精神を得た！");
 			pl.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
 			pl.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 250, 0));
 		}else if (ram < 0.8D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.AQUA + "天空の力を得た！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.AQUA + "天空の力を得た！");
 			if (pl.getWorld().isThundering()){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "天は雷光の如き力を授けて下さった！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "天は雷光の如き力を授けて下さった！");
 				pl.removePotionEffect(PotionEffectType.SPEED);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2));
 				pl.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
@@ -161,7 +161,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.removePotionEffect(PotionEffectType.FAST_DIGGING);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 200, 1));
 			}else if (pl.getWorld().hasStorm()){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_BLUE + "天は雨の尊い恵みを授けて下さった！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_BLUE + "天は雨の尊い恵みを授けて下さった！");
 				pl.removePotionEffect(PotionEffectType.JUMP);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 200, 1));
 				pl.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
@@ -169,7 +169,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.removePotionEffect(PotionEffectType.REGENERATION);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 200, 0));
 			}else{
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "天は晴天の輝く強さを授けて下さった！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "天は晴天の輝く強さを授けて下さった！");
 				pl.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 400, 0));
 				pl.removePotionEffect(PotionEffectType.HEAL);
@@ -178,20 +178,20 @@ public class Races_YUZ extends JavaPlugin {
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 400, 0));
 			}
 		}else if (ram < 0.9D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.UNDERLINE + "時の力を得た！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.UNDERLINE + "時の力を得た！");
 			if (pl.getWorld().getTime() < 14000L){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "太陽のエナジーは貴方にすざましき再生力を与える！");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "太陽のエナジーは貴方にすざましき再生力を与える！");
 				pl.removePotionEffect(PotionEffectType.REGENERATION);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 2));
 			}else{
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "月の煌きはあなたの心を狂わすであろう");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "月の煌きはあなたの心を狂わすであろう");
 				pl.removePotionEffect(PotionEffectType.CONFUSION);
 				pl.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 300, 1));
 			}
 		}else if (ram < 1.0D){
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "失敗！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "失敗！");
 		}else{
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "失敗！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "失敗！");
 		}
 		Object casting = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 		pl.setMetadata("casting", (MetadataValue)casting);
@@ -202,7 +202,7 @@ public class Races_YUZ extends JavaPlugin {
 				Player pl = event.getPlayer();
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "詠唱のクールダウンが解けました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "詠唱のクールダウンが解けました");
 			}
 		}, 300L);
 	}
@@ -229,7 +229,7 @@ public class Races_YUZ extends JavaPlugin {
 	
 	//TODO 神獣
 	public static void sinnzyuu_voice(final Player pl,final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "うなる咆哮！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "うなる咆哮！！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_GROWL, 5.0F, -1.0F);
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_GROWL, 5.0F, 0.0F);
 		List<Entity> enemys = pl.getNearbyEntities(50.0D, 50.0D, 50.0D);
@@ -253,14 +253,14 @@ public class Races_YUZ extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 120L);
 	}
 	
 	//TODO 龍魚
 	public static void ryuugyo_volt(final Player pl,final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "電流を水上に流した！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "電流を水上に流した！");
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_NOTE_BASEDRUM, 2.0F, 2.0F);
 		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.BLOCK_NOTE_BASEDRUM, 2.0F, 1.0F);
 		List<Entity> enemys = pl.getNearbyEntities(50.0D, 50.0D, 50.0D);
@@ -276,7 +276,7 @@ public class Races_YUZ extends JavaPlugin {
 				if (enemy.getLocation().getBlock().getType() == Material.WATER || enemy.getLocation().getBlock().getType() == Material.STATIONARY_WATER)
 				{
 					((LivingEntity)enemy).damage(10D);
-					if (enemy instanceof Player ) ((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.YELLOW + "ビリビリ！！");
+					if (enemy instanceof Player ) ((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "ビリビリ！！");
 					enemy.getLocation().getWorld().playSound(enemy.getLocation(), Sound.ENTITY_ZOMBIE_HORSE_HURT, 1.0F, 2.0F);
 				}
 				}
@@ -288,7 +288,7 @@ public class Races_YUZ extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 40L);
 	}

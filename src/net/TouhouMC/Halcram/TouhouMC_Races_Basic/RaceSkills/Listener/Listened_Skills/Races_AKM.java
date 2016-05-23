@@ -24,7 +24,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class Races_AKM extends JavaPlugin {
-	private static String thrpre = TouhouMC_Races_Basic.tmc_Races_pre;
+	private static String thrpre = TouhouMC_Races_Basic.thrace_Races_pre;
 	//移動スキル系
 	//吸血鬼カモフラージュ
 	public static void kyuuketuki_vamp(final Player pl, final Plugin plugin){

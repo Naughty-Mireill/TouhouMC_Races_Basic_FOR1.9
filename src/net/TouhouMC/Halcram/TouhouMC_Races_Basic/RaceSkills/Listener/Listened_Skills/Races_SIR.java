@@ -46,7 +46,7 @@ public class Races_SIR extends JavaPlugin {
 				n++;
 			}
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SNOWMAN_HURT, 2.0F, 1.0F);
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.AQUA + "雪の霊を召喚した！");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.AQUA + "雪の霊を召喚した！");
 		}else{
 			int n = 0;
 			while (n < 1){
@@ -58,7 +58,7 @@ public class Races_SIR extends JavaPlugin {
 				n++;
 			}
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_IRONGOLEM_HURT, 2.0F, -1.0F);
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + "岩の霊を召喚した");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "岩の霊を召喚した");
 		}
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
 		pl.setMetadata("using-magic", usingmagic);
@@ -66,7 +66,7 @@ public class Races_SIR extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 400L);
 	}
@@ -102,7 +102,7 @@ public class Races_SIR extends JavaPlugin {
 				if (!no_damage)
 				{
 					((Player)enemy).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 200, 5));
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_BLUE + "鬱だ・・");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_BLUE + "鬱だ・・");
 				}
 			}
 		}else if (rand >= 0.4D){
@@ -116,7 +116,7 @@ public class Races_SIR extends JavaPlugin {
 				if (!no_damage)
 				{
 					((Player)enemy).addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 400, 2));
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_RED + "躁だ☆");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "躁だ☆");
 				}
 			}
 		}else {
@@ -129,7 +129,7 @@ public class Races_SIR extends JavaPlugin {
 				}
 				if (!no_damage)
 				{
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GREEN + "騒音だ！！");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "騒音だ！！");
 					if (((Player)enemy).getHealth() - 15.0D >= 0.0D) {
 						((Player)enemy).setHealth(((Player)enemy).getHealth() - 15.0D);
 					}else {
@@ -166,10 +166,10 @@ public class Races_SIR extends JavaPlugin {
 		if (boost > 0) rand += 0.1;
 		if (rand > 0.7D){
 			pl.setHealth(50.0D);
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_RED + "消えたくない・・・っ");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "消えたくない・・・っ");
 			if ((event.getDamager() instanceof Player)){
 				Player dpl = (Player)event.getDamager();
-				dpl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_RED + "消えたくない・・・っ");
+				dpl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "消えたくない・・・っ");
 				dpl.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 100, 4));
 			}
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_GHAST_WARN, 2.0F, 2.0F);
@@ -221,7 +221,7 @@ public class Races_SIR extends JavaPlugin {
 				if ((enemy instanceof Player)){
 					((Player)enemy).playSound(pl.getLocation(), Sound.ENTITY_CAT_PURR, 1.0F, 1.0F);
 					((Player)enemy).addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 300, 1));
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GRAY + "透明な世界になった！");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "透明な世界になった！");
 				}
 			}
 		}else if (rand >= 0.2D){
@@ -229,7 +229,7 @@ public class Races_SIR extends JavaPlugin {
 				if ((enemy instanceof Player)){
 					((Player)enemy).playSound(pl.getLocation(), Sound.ENTITY_BAT_TAKEOFF, 1.0F, 2.0F);
 					((Player)enemy).addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 300, 3));
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GRAY + "神速の世界になった！");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "神速の世界になった！");
 				}
 			}
 		}else {
@@ -239,7 +239,7 @@ public class Races_SIR extends JavaPlugin {
 					((Player)enemy).playSound(pl.getLocation(), Sound.ENTITY_VILLAGER_DEATH, 1.0F, -1.0F);
 					((Player)enemy).setNoDamageTicks(20);
 					((Player)enemy).setHealth(1D);
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GRAY + "無敵後即死の世界になった！");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "無敵後即死の世界になった！");
 				}
 			}
 		}
@@ -258,7 +258,7 @@ public class Races_SIR extends JavaPlugin {
 				}
 				if (!no_damage)
 				{
-				((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.LIGHT_PURPLE + "夢喰の精神攻撃！");
+				((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "夢喰の精神攻撃！");
 				if (conf.getInt("user." + enemy.getUniqueId() + ".spilit") >= 20)
 				{
 					conf.set("user." + pl.getUniqueId() + ".spilit",conf.getInt("user." + pl.getUniqueId() + ".spilit") + 20 );
@@ -270,7 +270,7 @@ public class Races_SIR extends JavaPlugin {
 					conf.set("user." + pl.getUniqueId() + ".spilit",conf.getInt("user." + pl.getUniqueId() + ".spilit") + mana );
 					conf.set("user." + enemy.getUniqueId() + ".spilit",conf.getInt("user." + enemy.getUniqueId() + ".spilit") - mana );
 					int damage = 20 - mana ;
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_PURPLE + "あなたは霊力が無かったため夢に喰われた！！");
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_PURPLE + "あなたは霊力が無かったため夢に喰われた！！");
 					((Player)enemy).damage(damage,pl);
 				}
 				}
@@ -279,16 +279,16 @@ public class Races_SIR extends JavaPlugin {
 		if (conf.getInt("user." + pl.getUniqueId() + ".spilit") >= 201)
 		{
 			conf.set("user." + pl.getUniqueId() + ".spilit",200 );
-			pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.LIGHT_PURPLE + "夢でお腹いっぱい。");
+			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "夢でお腹いっぱい。");
 		}
-		TouhouMC_Races_Basic.SaveTMCConfig();
+		TouhouMC_Races_Basic.SavethraceConfig();
 		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
 		pl.setMetadata("using-magic", usingmagic);
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 600L);
 	}

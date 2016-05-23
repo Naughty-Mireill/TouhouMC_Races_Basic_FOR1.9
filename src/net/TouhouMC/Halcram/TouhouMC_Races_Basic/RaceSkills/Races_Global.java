@@ -6,7 +6,7 @@
  *  com.gmail.louis1234567890987654321.teams.Team
  *  com.gmail.louis1234567890987654321.teams.TeamManager
  *  net.TouhouMC.Halcram.TouhouMC_Races_Basic.RaceSkills.Races_Global$1
- *  net.TouhouMC.Halcram.TouhouMC_Races_Basic.TeamManager_tmcr
+ *  net.TouhouMC.Halcram.TouhouMC_Races_Basic.TeamManager_thracer
  *  net.TouhouMC.Halcram.TouhouMC_Races_Basic.TouhouMC_Races_Basic
  *  org.bukkit.Bukkit
  *  org.bukkit.ChatColor
@@ -46,18 +46,18 @@ extends JavaPlugin
 implements Listener {
     public static boolean magic_iscastable(Player pl, int mana, String string) {
         if (((MetadataValue)pl.getMetadata("casting").get(0)).asBoolean()) {
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.RED + "\u4ed6\u306e\u9b54\u6cd5\u3092\u8a60\u5531\u4e2d\u3067\u3059");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.RED + "\u4ed6\u306e\u9b54\u6cd5\u3092\u8a60\u5531\u4e2d\u3067\u3059");
             return false;
         }
         if (((MetadataValue)pl.getMetadata("using-magic").get(0)).asBoolean()) {
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.RED + "\u4ed6\u306e\u9b54\u6cd5\u3092\u4f7f\u7528\u4e2d\u3067\u3059");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.RED + "\u4ed6\u306e\u9b54\u6cd5\u3092\u4f7f\u7528\u4e2d\u3067\u3059");
             return false;
         }
         if (TouhouMC_Races_Basic.conf.getDouble("user." + pl.getUniqueId() + ".spilit") > (double)mana) {
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.LIGHT_PURPLE + string);
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.LIGHT_PURPLE + string);
             return true;
         }
-        pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.RED + "\u970a\u529b\u304c\u4e0d\u8db3\u3057\u3066\u3044\u307e\u3059");
+        pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.RED + "\u970a\u529b\u304c\u4e0d\u8db3\u3057\u3066\u3044\u307e\u3059");
         return false;
     }
 
@@ -70,19 +70,19 @@ implements Listener {
         if (((MetadataValue)pl.getMetadata("spilituse").get(0)).asDouble() != 0.0) {
             FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 0);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.WHITE + "\u970a\u529b\u30ce\u30fc\u30de\u30eb");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.WHITE + "\u970a\u529b\u30ce\u30fc\u30de\u30eb");
         } else if (dust_is_ok == Material.SUGAR) {
             FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 1);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.AQUA + "\u970a\u529b\u6d88\u8cbb\u5c0f");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.AQUA + "\u970a\u529b\u6d88\u8cbb\u5c0f");
         } else if (dust_is_ok == Material.SULPHUR) {
             FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, 3);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.DARK_GRAY + "\u970a\u529b\u6d88\u8cbb\u5927");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.DARK_GRAY + "\u970a\u529b\u6d88\u8cbb\u5927");
         } else if (dust_is_ok == Material.GLOWSTONE_DUST) {
             FixedMetadataValue spilituse = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, -2);
             pl.setMetadata("spilituse", (MetadataValue)spilituse);
-            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.tmc_Races_pre) + (Object)ChatColor.YELLOW + "\u970a\u529b\u56de\u5fa9\u4e2d");
+            pl.sendMessage(String.valueOf(TouhouMC_Races_Basic.thrace_Races_pre) + (Object)ChatColor.YELLOW + "\u970a\u529b\u56de\u5fa9\u4e2d");
         }
     }
 }

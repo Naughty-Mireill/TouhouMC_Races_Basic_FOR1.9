@@ -29,6 +29,7 @@ import org.bukkit.entity.Snowman;
 import org.bukkit.entity.Villager;
 import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -46,7 +47,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
 public class Races_EventActionListener2 implements Listener {
-	static String pluginpre = TouhouMC_Races_Basic.tmc_Races_pre;
+	static String pluginpre = TouhouMC_Races_Basic.thrace_Races_pre;
 	public static File config = TouhouMC_Races_Basic.configfile;
 	//configの呼び出しはこれを推奨
 	static File file = TouhouMC_Races_Basic.configfile;
@@ -59,8 +60,8 @@ public class Races_EventActionListener2 implements Listener {
 
 	/*イベント処理ここから*/
 	//チャット装飾
-	@EventHandler
-	public void onAsyncChat(AsyncPlayerChatEvent e){
+	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+	public void onAsyncChat(final AsyncPlayerChatEvent e){
 		//前置詞に種族名を加える
 		Player pl = e.getPlayer();
 		String format = e.getFormat();
@@ -77,11 +78,11 @@ public class Races_EventActionListener2 implements Listener {
 			}
 			String race;
 			if (existrace){
-				race = conf.getString("race." + inforace + ".display.tag");
+				race = conf.getString("race." + inforace + ".tag");
 			}else {
 				race = conf.getString("user." + pl.getUniqueId() + ".race");
 			}
-			e.setFormat(ChatColor.WHITE + "[" + race + ChatColor.WHITE + "]" + format);
+			e.setFormat(race +  ChatColor.WHITE+ format);
 		}
 	}
 
@@ -92,13 +93,13 @@ public class Races_EventActionListener2 implements Listener {
 		//新規登録
 		if (!conf.contains("user." + pl.getUniqueId())){
 			conf.set("user." + pl.getUniqueId() + ".name" , pl.getName());
-			conf.set("user." + pl.getUniqueId() + ".point" , 0);
+			conf.set("user." + pl.getUniqueId() + ".needpoint" , 0);
 			conf.set("user." + pl.getUniqueId() + ".race" , "kedama");
 			conf.set("user." + pl.getUniqueId() + ".spilit", 0);
-			TouhouMC_Races_Basic.SaveTMCConfig();
+			TouhouMC_Races_Basic.SavethraceConfig();
 		}
 		conf.set("user." + pl.getUniqueId() + ".spilit", 0);
-		TouhouMC_Races_Basic.SaveTMCConfig();
+		TouhouMC_Races_Basic.SavethraceConfig();
 		//メタ初期付与
 		MetadataValue casted = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, false) ;
 		pl.setMetadata("casting", casted);
@@ -156,7 +157,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -177,7 +178,7 @@ public class Races_EventActionListener2 implements Listener {
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 								pl.setMetadata("casting", casting);
 								conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-								TouhouMC_Races_Basic.SaveTMCConfig();
+								TouhouMC_Races_Basic.SavethraceConfig();
 								pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 								pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 								TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -196,7 +197,7 @@ public class Races_EventActionListener2 implements Listener {
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 								pl.setMetadata("casting", casting);
 								conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-								TouhouMC_Races_Basic.SaveTMCConfig();
+								TouhouMC_Races_Basic.SavethraceConfig();
 								pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 								pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 								TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -215,7 +216,7 @@ public class Races_EventActionListener2 implements Listener {
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 								pl.setMetadata("casting", casting);
 								conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-								TouhouMC_Races_Basic.SaveTMCConfig();
+								TouhouMC_Races_Basic.SavethraceConfig();
 								pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 								pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 								TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -234,7 +235,7 @@ public class Races_EventActionListener2 implements Listener {
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 								pl.setMetadata("casting", casting);
 								conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-								TouhouMC_Races_Basic.SaveTMCConfig();
+								TouhouMC_Races_Basic.SavethraceConfig();
 								pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 								pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 								TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -253,7 +254,7 @@ public class Races_EventActionListener2 implements Listener {
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 								pl.setMetadata("casting", casting);
 								conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-								TouhouMC_Races_Basic.SaveTMCConfig();
+								TouhouMC_Races_Basic.SavethraceConfig();
 								pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 								pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 								TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -275,7 +276,7 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 									pl.setMetadata("casting", casting);
 									conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 									pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 									pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 									TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -294,7 +295,7 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 									pl.setMetadata("casting", casting);
 									conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 									pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 									pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 									TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -313,7 +314,7 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 									pl.setMetadata("casting", casting);
 									conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 									pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 									pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 									TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -332,7 +333,7 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 									pl.setMetadata("casting", casting);
 									conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-									TouhouMC_Races_Basic.SaveTMCConfig();
+									TouhouMC_Races_Basic.SavethraceConfig();
 									pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 									pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 									TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -356,7 +357,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -379,7 +380,7 @@ public class Races_EventActionListener2 implements Listener {
 							boost = pl.getMetadata("spilituse").get(0).asInt();
 							Races_YUM.tenngu_kamikaze(pl, boost);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 						}
 					}
@@ -392,7 +393,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_AMBIENT, 1.0F, 1.0F);
 							pl.getWorld().playEffect(pl.getLocation(), Effect.FOOTSTEP, 3, 3);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
@@ -411,7 +412,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_AMBIENT, 1.0F, 1.0F);
 							pl.getWorld().playEffect(pl.getLocation(), Effect.FOOTSTEP, 3, 3);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
@@ -433,7 +434,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_AMBIENT, 1.0F, 1.0F);
 							pl.getWorld().playEffect(pl.getLocation(), Effect.FOOTSTEP, 3, 3);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
@@ -456,7 +457,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_AMBIENT, 1.0F, 1.0F);
 							pl.getWorld().playEffect(pl.getLocation(), Effect.FOOTSTEP, 3, 3);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
@@ -479,7 +480,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_INFECT, 1.0F, 1.0F);
 							pl.getWorld().playEffect(pl.getLocation(), Effect.FOOTSTEP, 3, 3);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
@@ -502,7 +503,7 @@ public class Races_EventActionListener2 implements Listener {
 						boost = pl.getMetadata("spilituse").get(0).asInt();
 						Races_YUM.syoukaitenngu_scent(pl,TouhouMC_Races_Basic.plugin0, boost);
 						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-						TouhouMC_Races_Basic.SaveTMCConfig();
+						TouhouMC_Races_Basic.SavethraceConfig();
 						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 					}
 				}
@@ -511,7 +512,7 @@ public class Races_EventActionListener2 implements Listener {
 					if(handitem == Material.WOOD_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana, "木の槍を掲げた！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -530,7 +531,7 @@ public class Races_EventActionListener2 implements Listener {
 					if(handitem == Material.STONE_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"花は開きつつある！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SILVERFISH_AMBIENT, 1, -1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -552,7 +553,7 @@ public class Races_EventActionListener2 implements Listener {
 					if(handitem == Material.IRON_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana, "鉄の槍を掲げた！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -574,7 +575,7 @@ public class Races_EventActionListener2 implements Listener {
 					if(handitem == Material.GOLD_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"花は開きつつある！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SILVERFISH_AMBIENT, 1, -1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -593,7 +594,7 @@ public class Races_EventActionListener2 implements Listener {
 					if(handitem == Material.WOOD_PICKAXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"姿を変えつつある！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BAT_HURT, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -614,7 +615,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -636,7 +637,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_IRONGOLEM_STEP, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -657,7 +658,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -678,7 +679,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -700,7 +701,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_GHAST_WARN, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -721,7 +722,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_NOTE_SNARE, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -742,7 +743,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_NOTE_SNARE, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -764,7 +765,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.AMBIENT_CAVE, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -786,7 +787,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_WHINE, 1, 0);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -808,7 +809,7 @@ public class Races_EventActionListener2 implements Listener {
 						{
 	
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							Races_KAM.onnbasira_circlefaith(pl, TouhouMC_Races_Basic.plugin0);
 						}
@@ -822,7 +823,7 @@ public class Races_EventActionListener2 implements Listener {
 						{
 	
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							Races_KAM.kerokero_nativefaith(pl, TouhouMC_Races_Basic.plugin0);
 						}
@@ -839,7 +840,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -857,7 +858,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -871,7 +872,7 @@ public class Races_EventActionListener2 implements Listener {
 					}
 				}
 				///妖獣人魚獣人
-				if (race.equalsIgnoreCase("youzuu") || race.equalsIgnoreCase("ninngyo") || race.equalsIgnoreCase("zyuuzin")) {
+				if (race.equalsIgnoreCase("youzyuu") || race.equalsIgnoreCase("ninngyo") || race.equalsIgnoreCase("zyuuzin")) {
 					//妖獣の狼召喚（書き込み有）（前置詞有(詠唱有)
 					mana = 15;
 					if (handitem == Material.FISHING_ROD && (pl.isSneaking())) {
@@ -879,7 +880,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -900,7 +901,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -921,7 +922,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_BLAZE_AMBIENT, 1, 2);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -942,7 +943,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_DONKEY_ANGRY, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -964,7 +965,7 @@ public class Races_EventActionListener2 implements Listener {
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 							pl.setMetadata("casting", casting);
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-							TouhouMC_Races_Basic.SaveTMCConfig();
+							TouhouMC_Races_Basic.SavethraceConfig();
 							pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_LEVER_CLICK, 1, 1);
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -995,7 +996,7 @@ public class Races_EventActionListener2 implements Listener {
 			if (race.equalsIgnoreCase("mugennzin") == false && race.equalsIgnoreCase("tukibito") == false && race.equalsIgnoreCase("makaizin") == false && race.equalsIgnoreCase("ninngen") == false && race.equalsIgnoreCase("mazyo") == false && race.equalsIgnoreCase("houraizin") == false && race.equalsIgnoreCase("gennzinnsin") == false && race.equalsIgnoreCase("sibito") == false && race.equalsIgnoreCase("sennninn") == false && race.equalsIgnoreCase("makaizin") == false && race.equalsIgnoreCase("seizin") == false && race.equalsIgnoreCase("tennzin") == false && race.equalsIgnoreCase("kodaizin") == false && race.equalsIgnoreCase("tukibito") == false && race.equalsIgnoreCase("ennma") == false) {
 				if (e.getRightClicked() instanceof Villager)
 				{
-					pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GRAY + "このニンゲンは何を話しているんだろう・・・");
+					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "このニンゲンは何を話しているんだろう・・・");
 					pl.closeInventory();
 					e.setCancelled(true);
 				}
@@ -1009,7 +1010,7 @@ public class Races_EventActionListener2 implements Listener {
 						MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 						pl.setMetadata("casting", casting);
 						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-						TouhouMC_Races_Basic.SaveTMCConfig();
+						TouhouMC_Races_Basic.SavethraceConfig();
 						pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_ANVIL_LAND, 1, 3);
 						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 						TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -1031,7 +1032,7 @@ public class Races_EventActionListener2 implements Listener {
 						MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 						pl.setMetadata("casting", casting);
 						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-						TouhouMC_Races_Basic.SaveTMCConfig();
+						TouhouMC_Races_Basic.SavethraceConfig();
 						pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SPIDER_AMBIENT, 1, 1);
 						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 						TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -1055,7 +1056,7 @@ public class Races_EventActionListener2 implements Listener {
 						MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
 						pl.setMetadata("casting", casting);
 						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-						TouhouMC_Races_Basic.SaveTMCConfig();
+						TouhouMC_Races_Basic.SavethraceConfig();
 						pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 2);
 						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 						TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
@@ -1131,7 +1132,7 @@ public class Races_EventActionListener2 implements Listener {
 			if (pl.getMetadata("spilituse").get(0).asDouble() < 0){
 				event.setDamage(event.getDamage() / 2D);
 				if (pl.isSneaking()){
-					pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "貴方は霊力再生モードの為本気を出せません！");
+					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "貴方は霊力再生モードの為本気を出せません！");
 				}
 			}
 		}
@@ -1200,7 +1201,7 @@ public class Races_EventActionListener2 implements Listener {
 			if (pl.getMetadata("spilituse").get(0).asDouble() < 0){
 				event.setDamage(event.getDamage() * 1.5D);
 				if (pl.isSneaking()){
-					pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.RED + "貴方は霊力再生モードの為非常に柔いです！");
+					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "貴方は霊力再生モードの為非常に柔いです！");
 				}
 			}
 		}}
@@ -1277,7 +1278,7 @@ public class Races_EventActionListener2 implements Listener {
 				Races_YUZ.ninngyo_swimming(pl, TouhouMC_Races_Basic.plugin0, boost);
 				if (boost == 1){
 					conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-					TouhouMC_Races_Basic.SaveTMCConfig();
+					TouhouMC_Races_Basic.SavethraceConfig();
 			}
 			}
 		}
@@ -1290,7 +1291,7 @@ public class Races_EventActionListener2 implements Listener {
 			Races_YUM.karasutenngu_hopping(pl, TouhouMC_Races_Basic.plugin0, boost);
 			if (boost == 1){
 				conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-				TouhouMC_Races_Basic.SaveTMCConfig();
+				TouhouMC_Races_Basic.SavethraceConfig();
 			}
 		}
 	}
@@ -1309,8 +1310,7 @@ public class Races_EventActionListener2 implements Listener {
 				if (!pl.isOnGround() && pl.isSneaking() && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana ){
 					Races_YUS.yousei_feather(pl, TouhouMC_Races_Basic.plugin0);
 					conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-					TouhouMC_Races_Basic.SaveTMCConfig();
-					pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
+					TouhouMC_Races_Basic.SavethraceConfig();
 				}
 			}
 		}
@@ -1320,7 +1320,7 @@ public class Races_EventActionListener2 implements Listener {
 			if ((!pl.isOnGround()) && (pl.isSneaking()) && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana) {
 				Races_NNG.sennnin_passthough(pl, TouhouMC_Races_Basic.plugin0);
 				conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
-				TouhouMC_Races_Basic.SaveTMCConfig();
+				TouhouMC_Races_Basic.SavethraceConfig();
 				pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 			}
 		}

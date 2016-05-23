@@ -56,7 +56,7 @@ public class Races_YNK extends JavaPlugin {
 	public static void houzyousin_potato(Player pl, Plugin plugin, EntityDamageByEntityEvent event,int boost){
 		if ((Math.random() >= 0.8D) && ((event.getEntity() instanceof Player)) && boost > 0.0D){
 			((Player)event.getEntity()).setFoodLevel(((Player)event.getEntity()).getFoodLevel() - 1);
-			event.getEntity().sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.GOLD + pl.getName() + "はおいしい芋を見せつけてきた！！");
+			event.getEntity().sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + pl.getName() + "はおいしい芋を見せつけてきた！！");
 		}
 	}
 
@@ -64,7 +64,7 @@ public class Races_YNK extends JavaPlugin {
 		if (event.getDamager() instanceof Player && event.getDamage() >= pl.getHealth()){
 			Player killplayer = (Player) event.getDamager();
 			if (!killplayer.isDead()){
-				killplayer.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_RED + "あなた厄神の祟りを受けた！！！");
+				killplayer.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "あなた厄神の祟りを受けた！！！");
 				killplayer.damage(50.0D);
 			}
 		}

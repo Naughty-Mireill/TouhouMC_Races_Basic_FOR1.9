@@ -31,7 +31,7 @@ public class Races_YUS extends JavaPlugin {
 
 	//攻撃スキル系
 	public static void yousei_illusion(final Player pl, final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.LIGHT_PURPLE + "金のシャベルの輝きがあたりを惑わす！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "金のシャベルの輝きがあたりを惑わす！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_PURR, 3.0F, -1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.HAPPY_VILLAGER, 1, 1);
 		List<Entity> enemys = pl.getNearbyEntities(14.0D, 14.0D, 14.0D);
@@ -53,13 +53,13 @@ public class Races_YUS extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 60L);
 	}
 
 	public static void kibito_venom(final Player pl, final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GREEN + "樹人は毒をばらまいた！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GREEN + "樹人は毒をばらまいた！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_PIG_DEATH, 3.0F, -1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.VOID_FOG, 1, 1);
 		List<Entity> enemys = pl.getNearbyEntities(14.0D, 14.0D, 14.0D);
@@ -81,7 +81,7 @@ public class Races_YUS extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 100L);
 	}
@@ -131,12 +131,12 @@ public class Races_YUS extends JavaPlugin {
 	public static void egosatori_vanished(final Player pl, final Plugin plugin) {
 		MetadataValue casting = new FixedMetadataValue(plugin, true) ;
 		pl.setMetadata("casting", casting);
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_AQUA + "すべてを無意識にする！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_AQUA + "すべてを無意識にする！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SILVERFISH_AMBIENT, 1, 0);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.WITCH_MAGIC, 1, 1);
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 			public void run(){
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GRAY + "完全に消滅したように見える・・・");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "完全に消滅したように見える・・・");
 				pl.setNoDamageTicks(400);
 				for (Player vpl : Bukkit.getServer().getOnlinePlayers())
 				{
@@ -155,7 +155,7 @@ public class Races_YUS extends JavaPlugin {
 						}
 						MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
 						pl.setMetadata("using-magic", usingmagic);
-						pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱の効果及びクールダウンが終わりました");
+						pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱の効果及びクールダウンが終わりました");
 					}
 				}, 400L);
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
@@ -203,7 +203,7 @@ public class Races_YUS extends JavaPlugin {
 	}
 	
 	public static void sikiyou_deadly_poison(final Player pl, final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.DARK_GREEN + "四季妖は死せる樹の毒をばらまいた！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GREEN + "四季妖は死せる樹の毒をばらまいた！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SKELETON_DEATH, 3.0F, -1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.VOID_FOG, 1, 1);
 		List<Entity> enemys = pl.getNearbyEntities(5.0D, 5.0D, 5.0D);
@@ -225,7 +225,7 @@ public class Races_YUS extends JavaPlugin {
 			public void run(){
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(TouhouMC_Races_Basic.tmc_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}, 240L);
 	}
