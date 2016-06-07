@@ -26,7 +26,6 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowman;
-import org.bukkit.entity.Villager;
 import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -46,6 +45,7 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
+/*PVP追加系リスナー*/
 public class Races_EventActionListener2 implements Listener {
 	static String pluginpre = TouhouMC_Races_Basic.thrace_Races_pre;
 	public static File config = TouhouMC_Races_Basic.configfile;
@@ -151,7 +151,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//人間魔女の回復魔法（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("mugennzin")||race.equalsIgnoreCase("makaizin")||race.equalsIgnoreCase("mazyo")||race.equalsIgnoreCase("ninngen") ) {
-					mana = 25;
+					mana = 50;
 					if(handitem == Material.STICK && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -166,13 +166,13 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
-							}, 20L);
+							}, 40L);
 						}
 					}
 					if (race.equalsIgnoreCase("mugennzin")||race.equalsIgnoreCase("makaizin")||race.equalsIgnoreCase("mazyo"))
 					{
 						//魔女の風魔法（書き込み有）（前置詞有(詠唱有)
-						mana = 30;
+						mana = 70;
 						if(handitem == Material.WOOD_SWORD && (pl.isSneaking())) {
 							if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -191,7 +191,7 @@ public class Races_EventActionListener2 implements Listener {
 							}
 						}
 						//魔女の土魔法（書き込み有）（前置詞有(詠唱有)
-						mana = 45;
+						mana = 100;
 						if (handitem == Material.STONE_SWORD && (pl.isSneaking())) {
 							if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -210,7 +210,7 @@ public class Races_EventActionListener2 implements Listener {
 							}
 						}
 						//魔女の火魔法（書き込み有）（前置詞有(詠唱有)
-						mana = 30;
+						mana = 50;
 						if (handitem == Material.IRON_SWORD && (pl.isSneaking())) {
 							if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -229,7 +229,7 @@ public class Races_EventActionListener2 implements Listener {
 							}
 						}
 						//魔女の水魔法（書き込み有）（前置詞有(詠唱有)
-						mana = 60;
+						mana = 150;
 						if (handitem == Material.DIAMOND_SWORD && (pl.isSneaking())) {
 							if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -248,7 +248,7 @@ public class Races_EventActionListener2 implements Listener {
 							}
 						}
 						//魔女の雷魔法（書き込み有）（前置詞有(詠唱有)
-						mana = 70;
+						mana = 250;
 						if (handitem == Material.GOLD_SWORD && (pl.isSneaking())) {
 							if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -270,7 +270,7 @@ public class Races_EventActionListener2 implements Listener {
 						if (race.equalsIgnoreCase("makaizin"))
 						{
 							//魔界人のメテオ魔法（書き込み有）（前置詞有(詠唱有)
-							mana = 60;
+							mana = 400;
 							if (handitem == Material.DIAMOND_PICKAXE && (pl.isSneaking())) {
 								if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -289,7 +289,7 @@ public class Races_EventActionListener2 implements Listener {
 								}
 							}
 							//魔界人の飛行魔法（書き込み有）（前置詞有(詠唱有)
-							mana = 80;
+							mana = 250;
 							if (handitem == Material.DIAMOND_SPADE && (pl.isSneaking())) {
 								if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -308,7 +308,7 @@ public class Races_EventActionListener2 implements Listener {
 								}
 							}
 							//魔界人の台風魔法（書き込み有）（前置詞有(詠唱有)
-							mana = 50;
+							mana = 350;
 							if (handitem == Material.DIAMOND_AXE && (pl.isSneaking())) {
 								if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -327,7 +327,7 @@ public class Races_EventActionListener2 implements Listener {
 								}
 							}
 							//魔界人の無敵魔法（書き込み有）（前置詞有(詠唱有)
-							mana = 100;
+							mana = 400;
 							if (handitem == Material.DIAMOND_HOE && (pl.isSneaking())) {
 								if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -350,7 +350,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//TODO 月人
 				//月人の蘇生力アップ（書き込み有）（前置詞有(詠唱有)
-				mana = 50;
+				mana = 100;
 				if (race.equalsIgnoreCase("tukibito")) {
 					if(handitem == Material.WATCH && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"発動！！")){
@@ -366,12 +366,12 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
-							}, 100L);
+							}, 200L);
 						}
 					}
 				}
 				///天狗神風書き込み有）（前置詞有（ブースター処有
-				mana = 40;
+				mana = 100;
 				if (race.equalsIgnoreCase("tenngu") || race.equalsIgnoreCase("karasutenngu") || race.equalsIgnoreCase("syoukaitenngu") ) {
 					if(conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana)
 					{
@@ -387,7 +387,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//妖魔 金斧（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("youma") || race.equalsIgnoreCase("kappa") || race.equalsIgnoreCase("tenngu") || race.equalsIgnoreCase("kennyou") || race.equalsIgnoreCase("karasutenngu") || race.equalsIgnoreCase("syoukaitenngu") || race.equalsIgnoreCase("sukimayou") || race.equalsIgnoreCase("yamakappa")){
-					mana = 25;
+					mana = 40;
 					if(handitem == Material.GOLD_AXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"斧を構えた！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -403,10 +403,10 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
-							}, 20L);
+							}, 40L);
 						}
 					}
-					mana = 15;
+					mana = 40;
 					if(handitem == Material.WOOD_AXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"斧を構えた！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -422,13 +422,13 @@ public class Races_EventActionListener2 implements Listener {
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
-							}, 15L);
+							}, 40L);
 						}
 					}
 				}
 				if (race.equalsIgnoreCase("kappa"))
 				{
-					mana = 25;
+					mana = 70;
 					if(handitem == Material.STONE_AXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"TNTを構えた！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -440,7 +440,7 @@ public class Races_EventActionListener2 implements Listener {
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable(){
 								public void run(){
-									Races_YUM.kappa_stone_tnt(pl);
+									Races_YUM.kappa_stone_tnt(pl, TouhouMC_Races_Basic.plugin0);
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
@@ -451,7 +451,7 @@ public class Races_EventActionListener2 implements Listener {
 				//TODO 山河童
 				else if (race.equalsIgnoreCase("yamakappa"))
 				{
-					mana = 45;
+					mana = 120;
 					if(handitem == Material.IRON_AXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"クリーパーを構えた！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -463,7 +463,7 @@ public class Races_EventActionListener2 implements Listener {
 							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable(){
 								public void run(){
-									Races_YUM.yamakappa_thown_creeper(pl);
+									Races_YUM.yamakappa_thown_creeper(pl,TouhouMC_Races_Basic.plugin0);
 									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
 									pl.setMetadata("casting", casting);
 								}
@@ -474,7 +474,7 @@ public class Races_EventActionListener2 implements Listener {
 				//TODO スキマ妖
 				if (race.equalsIgnoreCase("sukimayou"))
 				{
-					mana = 70;
+					mana = 300;
 					if(handitem == Material.DIAMOND_AXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"スキマを呼び出している！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -496,7 +496,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//TDO 哨戒天狗
 				///哨戒天狗察知書き込み有）（前置詞有（ブースター処有
-				mana = 1;
+				mana = 5;
 				if (race.equalsIgnoreCase("syoukaitenngu") && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana) {
 					int boost = 0;
 					if (pl.getMetadata("spilituse").get(0).asInt() > 0 && handitem == Material.COMPASS && (pl.isSneaking())){
@@ -507,8 +507,28 @@ public class Races_EventActionListener2 implements Listener {
 						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
 					}
 				}
+				///大妖精のブラインダー（書き込み有）（前置詞有(詠唱有)
+				mana = 50;
+				if (race.equalsIgnoreCase("daiyousei") || race.equalsIgnoreCase("hyouketuyousei")){
+					if(handitem == Material.STONE_SPADE && (pl.isSneaking())){
+						if(Races_Global.magic_iscastable(pl , mana, "石の槍を掲げた！")){
+							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
+							TouhouMC_Races_Basic.SavethraceConfig();
+							pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 1);
+							pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
+							TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
+								public void run() {
+									Races_YUS.daiyousei_illusion(pl, TouhouMC_Races_Basic.plugin0);
+									MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
+									pl.setMetadata("casting", casting);
+								}
+							}, 10L);
+						}
+					}
+				}
+				mana = 70;
 				///妖精のイリュージョン（書き込み有）（前置詞有(詠唱有)
-				if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("satori") || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou")){
+				if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou")){
 					if(handitem == Material.WOOD_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana, "木の槍を掲げた！")){
 							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
@@ -526,7 +546,7 @@ public class Races_EventActionListener2 implements Listener {
 					}
 				}
 				///樹人の毒散布（書き込み有）（前置詞有(詠唱有)
-				mana = 35;
+				mana = 100;
 				if (race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("sikiyou")){
 					if(handitem == Material.STONE_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"花は開きつつある！")){
@@ -547,7 +567,7 @@ public class Races_EventActionListener2 implements Listener {
 					}
 				}
 				//TODO エゴサトリ
-				mana = 80;
+				mana = 450;
 				///エゴサトリの完全消滅（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("egosatori")){
 					if(handitem == Material.IRON_SPADE && (pl.isSneaking())){
@@ -570,7 +590,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//TODO 四季妖
 				///四季妖の死毒散布（書き込み有）（前置詞有(詠唱有)
-				mana = 65;
+				mana = 300;
 				if (race.equalsIgnoreCase("sikiyou")){
 					if(handitem == Material.GOLD_SPADE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"花は開きつつある！")){
@@ -588,8 +608,27 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
+				//氷結妖精の氷魔法（書き込み有）（前置詞有(詠唱有)
+				mana = 99;
+				if (handitem == Material.DIAMOND_SPADE && (pl.isSneaking())) {
+					if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
+						MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
+						pl.setMetadata("casting", casting);
+						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
+						TouhouMC_Races_Basic.SavethraceConfig();
+						pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1, 2);
+						pl.sendMessage(pluginpre + ChatColor.GREEN + "霊力" + ChatColor.LIGHT_PURPLE + conf.getDouble(new StringBuilder("user.").append(pl.getUniqueId()).append(".spilit").toString()));
+						TouhouMC_Races_Basic.plugin0.getServer().getScheduler().scheduleSyncDelayedTask(TouhouMC_Races_Basic.plugin0, new Runnable() {
+							public void run() {
+								Races_YUS.hyouketuyousei_cold(pl, TouhouMC_Races_Basic.plugin0, e);
+								MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(false));
+								pl.setMetadata("casting", casting);
+							}
+						}, 5L);
+					}
+				}
 				///吸血鬼のカモフラージュ（書き込み有）（前置詞有(詠唱有)
-				mana = 25;
+				mana = 120;
 				if (race.equalsIgnoreCase("kyuuketuki") || race.equalsIgnoreCase("kinnima")){
 					if(handitem == Material.WOOD_PICKAXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"姿を変えつつある！")){
@@ -607,9 +646,9 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 40;
+				mana = 60;
 				//紅魔法（書き込み有）（前置詞有(詠唱有)
-				if (race.equalsIgnoreCase("akuma")||race.equalsIgnoreCase("oni")||race.equalsIgnoreCase("kyuuketuki")  || race.equalsIgnoreCase("kinnima") || race.equalsIgnoreCase("kairikirannsin") || race.equalsIgnoreCase("kizin")) {
+				if (race.equalsIgnoreCase("akuma")||race.equalsIgnoreCase("oni")||race.equalsIgnoreCase("kyuuketuki")  || race.equalsIgnoreCase("kinnima") || race.equalsIgnoreCase("kairikirannsin") || race.equalsIgnoreCase("kizin")|| race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("satori") ) {
 					if(handitem == Material.STONE_PICKAXE && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"詠唱！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -628,7 +667,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 5;
+				mana = 30;
 				//TODO 怪力乱神
 				//衝撃波（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("kairikirannsin") ) {
@@ -650,7 +689,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 40;
+				mana = 110;
 				//精霊の召喚（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("seirei")||race.equalsIgnoreCase("hannrei")||race.equalsIgnoreCase("sourei")||race.equalsIgnoreCase("onnryou") ||race.equalsIgnoreCase("sinnrei")||race.equalsIgnoreCase("saigyouyou")||race.equalsIgnoreCase("zibakurei")||race.equalsIgnoreCase("kyourei")) {
 					if(handitem == Material.STONE_HOE && (pl.isSneaking())){
@@ -671,7 +710,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 5;
+				mana = 30;
 				//精霊の光弾（書き込み有）(詠唱有)
 				if (race.equalsIgnoreCase("seirei")||race.equalsIgnoreCase("hannrei")||race.equalsIgnoreCase("sourei")||race.equalsIgnoreCase("onnryou") ||race.equalsIgnoreCase("sinnrei")||race.equalsIgnoreCase("saigyouyou")||race.equalsIgnoreCase("zibakurei")||race.equalsIgnoreCase("kyourei")) {
 					if(handitem == Material.WOOD_HOE && (pl.isSneaking())){
@@ -692,7 +731,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 50;
+				mana = 150;
 				//半霊の召喚（書き込み有）(詠唱有)
 				if (race.equalsIgnoreCase("hannrei") || race.equalsIgnoreCase("saigyouyou")) {
 					if(handitem == Material.GOLD_HOE && (pl.isSneaking()))
@@ -714,7 +753,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 60;
+				mana = 200;
 				//騒霊のオーケストラ（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("sourei")) {
 					if(handitem == Material.IRON_HOE && (pl.isSneaking())){
@@ -778,7 +817,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 10;
+				mana = 50;
 				//TODO 神獣
 				//神獣の咆哮(書き込み有）(詠唱有)
 				if (race.equalsIgnoreCase("sinnzyuu") ) {
@@ -800,7 +839,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 40;
+				mana = 120;
 				//TODO 中央神
 				//中央神の神楽招集(書き込み有）(詠唱有)
 				if (race.equalsIgnoreCase("tyuuousin") ) {
@@ -834,7 +873,7 @@ public class Races_EventActionListener2 implements Listener {
 				//TODO 夢現人
 				//夢現人のワープ設置（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("mugennzin") ) {
-					mana = 30;
+					mana = 400;
 					if(handitem == Material.BOW && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana,"召喚！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -874,7 +913,7 @@ public class Races_EventActionListener2 implements Listener {
 				///妖獣人魚獣人
 				if (race.equalsIgnoreCase("youzyuu") || race.equalsIgnoreCase("ninngyo") || race.equalsIgnoreCase("zyuuzin")) {
 					//妖獣の狼召喚（書き込み有）（前置詞有(詠唱有)
-					mana = 15;
+					mana = 70;
 					if (handitem == Material.FISHING_ROD && (pl.isSneaking())) {
 						if(Races_Global.magic_iscastable(pl , mana,"召喚！！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -895,7 +934,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//式のネコ召喚（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("siki")) {
-					mana = 30;
+					mana = 80;
 					if (handitem == Material.FISHING_ROD && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana ,"召喚！！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -916,7 +955,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//九尾の馬召喚（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("kyuubi")) {
-					mana = 45;
+					mana = 100;
 					if (handitem == Material.FISHING_ROD && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana ,"召喚！！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -937,7 +976,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 				//妖獣の強化（書き込み有）（前置詞有(詠唱有)
 				if (race.equalsIgnoreCase("youzyuu") || race.equalsIgnoreCase("zyuuzin") || race.equalsIgnoreCase("ninngyo") || race.equalsIgnoreCase("siki")|| race.equalsIgnoreCase("kyuubi")|| race.equalsIgnoreCase("sinnzyuu")|| race.equalsIgnoreCase("gyokuto")|| race.equalsIgnoreCase("ryuugyo")) {
-					mana = 35;
+					mana = 150;
 					if (handitem == Material.BOW && (pl.isSneaking())){
 						if(Races_Global.magic_iscastable(pl , mana ,"強化魔法！")){
 							MetadataValue casting = new FixedMetadataValue(TouhouMC_Races_Basic.plugin0, Boolean.valueOf(true));
@@ -956,7 +995,7 @@ public class Races_EventActionListener2 implements Listener {
 						}
 					}
 				}
-				mana = 15;
+				mana = 80;
 				//TODO 龍魚
 				//龍魚の電流(書き込み有）(詠唱有)
 				if (race.equalsIgnoreCase("ryuugyo") ) {
@@ -993,16 +1032,8 @@ public class Races_EventActionListener2 implements Listener {
 			{
 			Material handitem = pl.getInventory().getItemInMainHand().getType();
 			String race = conf.getString("user." + pl.getUniqueId() + ".race").toString();
-			if (race.equalsIgnoreCase("mugennzin") == false && race.equalsIgnoreCase("tukibito") == false && race.equalsIgnoreCase("makaizin") == false && race.equalsIgnoreCase("ninngen") == false && race.equalsIgnoreCase("mazyo") == false && race.equalsIgnoreCase("houraizin") == false && race.equalsIgnoreCase("gennzinnsin") == false && race.equalsIgnoreCase("sibito") == false && race.equalsIgnoreCase("sennninn") == false && race.equalsIgnoreCase("makaizin") == false && race.equalsIgnoreCase("seizin") == false && race.equalsIgnoreCase("tennzin") == false && race.equalsIgnoreCase("kodaizin") == false && race.equalsIgnoreCase("tukibito") == false && race.equalsIgnoreCase("ennma") == false) {
-				if (e.getRightClicked() instanceof Villager)
-				{
-					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "このニンゲンは何を話しているんだろう・・・");
-					pl.closeInventory();
-					e.setCancelled(true);
-				}
-			}
 			//鬼の埋め落とし（書き込み有）（前置詞有(詠唱有)
-			mana = 30;
+			mana = 100;
 			if (race.equalsIgnoreCase("oni") || race.equalsIgnoreCase("kairikirannsin")){
 				if(handitem == Material.IRON_PICKAXE && e.getRightClicked() instanceof LivingEntity && (pl.isSneaking())){
 					if(Races_Global.magic_iscastable(pl , mana,"拳を構えた！")){
@@ -1024,7 +1055,7 @@ public class Races_EventActionListener2 implements Listener {
 				}
 			}
 			//吸血鬼の吸血（書き込み有）（前置詞有(詠唱有)
-			mana = 20;
+			mana = 80;
 			if (race.equalsIgnoreCase("kyuuketuki") || race.equalsIgnoreCase("kinnima")){
 				if(handitem == Material.IRON_PICKAXE && e.getRightClicked() instanceof LivingEntity && (pl.isSneaking())){
 					if(Races_Global.magic_iscastable(pl , mana,"牙を構えた！")){
@@ -1047,7 +1078,7 @@ public class Races_EventActionListener2 implements Listener {
 			}
 			//TODO 禁忌魔
 			//禁忌魔のきゅっとして（書き込み有）（前置詞有(詠唱有)
-			mana = 60;
+			mana = 210;
 			if (race.equalsIgnoreCase("kinnima")){
 				if(handitem == Material.DIAMOND_PICKAXE && e.getRightClicked() instanceof LivingEntity && (pl.isSneaking())){
 					if(Races_Global.magic_iscastable(pl , mana,"手の平を構えた！")){
@@ -1073,7 +1104,7 @@ public class Races_EventActionListener2 implements Listener {
 	}
 	@EventHandler
 	public void EntityDamageByEntity(EntityDamageByEntityEvent event) {
-		int mana = 30;
+		int mana = 50;
 		if (event.getDamager() instanceof Player ) {
 			if (!event.getDamager().hasMetadata("vanished"))
 			{
@@ -1090,7 +1121,7 @@ public class Races_EventActionListener2 implements Listener {
 			if (race.equalsIgnoreCase("gennzinnsin") || race.equalsIgnoreCase("seizin") && conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
 				Races_NNG.gennzinnsin_luckyattack(pl, TouhouMC_Races_Basic.plugin0, event);
 			//悪魔
-			if (race.equalsIgnoreCase("akuma") || race.equalsIgnoreCase("kyuuketuki") || race.equalsIgnoreCase("kinnima"))
+			if (race.equalsIgnoreCase("akuma") || race.equalsIgnoreCase("kyuuketuki") || race.equalsIgnoreCase("kinnima")|| race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("satori") )
 				if (conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
 				{
 					Races_AKM.akuma_dark_attack(pl, TouhouMC_Races_Basic.plugin0, event);
@@ -1136,7 +1167,8 @@ public class Races_EventActionListener2 implements Listener {
 				}
 			}
 		}
-		mana = 20;
+		}
+		mana = 40;
 		if (event.getEntity() instanceof Player) {
 			Player pl = (Player) event.getEntity();
 			int boost = pl.getMetadata("spilituse").get(0).asInt();
@@ -1149,19 +1181,27 @@ public class Races_EventActionListener2 implements Listener {
 				}
 			//TODO 聖人
 			if (race.equalsIgnoreCase("seizin") && conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
-				Races_NNG.seizin_luckydefence(pl, TouhouMC_Races_Basic.plugin0, event);
+				Races_NNG.kodaizin_anti_chain(pl, TouhouMC_Races_Basic.plugin0, event);
 			//TODO 天人
 			if (race.equalsIgnoreCase("tennzin") && conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
 				Races_NNG.tennzin_mazo(pl, TouhouMC_Races_Basic.plugin0, event);
 			//TODO 古代人
 			if (race.equalsIgnoreCase("kodaizin") && conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
-				Races_NNG.kodaizin_anti_chain(pl, TouhouMC_Races_Basic.plugin0, event);
+				Races_NNG.seizin_luckydefence(pl, TouhouMC_Races_Basic.plugin0, event);
 			//妖精 (小人除く)
-			if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("satori") || race.equalsIgnoreCase("kibito"))
+			if (race.equalsIgnoreCase("yousei")|| race.equalsIgnoreCase("kibito"))
 			{
 				if(conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
 				{
 					Races_YUS.yousei_glaze(pl, TouhouMC_Races_Basic.plugin0, event);
+				}
+			}
+			//妖精 (小人除く)
+			if (race.equalsIgnoreCase("daiyousei") || race.equalsIgnoreCase("hyouketuyousei"))
+			{
+				if(conf.getInt("user." + pl.getUniqueId() + ".split") >= mana)
+				{
+					Races_YUS.daiyousei_glaze(pl, TouhouMC_Races_Basic.plugin0, event);
 				}
 			}
 			//小人
@@ -1204,13 +1244,13 @@ public class Races_EventActionListener2 implements Listener {
 					pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "貴方は霊力再生モードの為非常に柔いです！");
 				}
 			}
-		}}
+		}
 	}
 
 	//ダメージ関連の処理(攻撃以外含む)
 	@EventHandler
 	public void onPlayerDamage(EntityDamageEvent e){
-		int mana = 25;
+		int mana = 30;
 		Entity ent = e.getEntity();
 		if(ent instanceof Player){
 			Player pl = (Player) ent;
@@ -1225,12 +1265,12 @@ public class Races_EventActionListener2 implements Listener {
 				if (e.getCause() == EntityDamageEvent.DamageCause.FALL && conf.getInt("user." + pl.getUniqueId() + ".spilit") >= mana) Races_YUM.tenngu_toramporin(pl, TouhouMC_Races_Basic.plugin0, e);
 			}
 			//妖精
-			if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("satori") || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou"))
+			if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("kyozin")  || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou"))
 				{
 					if (e.getCause() == EntityDamageEvent.DamageCause.FALL && conf.getInt("user." + pl.getUniqueId() + ".spilit") >= mana) Races_YUS.yousei_fall_protection(pl, TouhouMC_Races_Basic.plugin0, e);
 				}
 			//悪魔
-			if (race.equalsIgnoreCase("akuma")|| race.equalsIgnoreCase("oni")|| race.equalsIgnoreCase("kyuuketuki")|| race.equalsIgnoreCase("kinnima")|| race.equalsIgnoreCase("kairikirannsin"))
+			if (race.equalsIgnoreCase("akuma")|| race.equalsIgnoreCase("oni")|| race.equalsIgnoreCase("kyuuketuki")|| race.equalsIgnoreCase("kinnima")|| race.equalsIgnoreCase("kairikirannsin")|| race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("satori") )
 				{
 				 if (conf.getInt("user." + pl.getUniqueId() + ".spilit") >= mana) Races_AKM.akuma_antiheat_body(pl, TouhouMC_Races_Basic.plugin0, e);
 				}
@@ -1269,7 +1309,7 @@ public class Races_EventActionListener2 implements Listener {
 		String race = conf.getString("user." + pl.getUniqueId() + ".race").toString();
 		int mana = 0;
 		//人魚高水泳書き込み有）（ブースター処有
-		mana = 1;
+		mana = 3;
 		if (race.equalsIgnoreCase("ninngyo")|| race.equalsIgnoreCase("ryuugyo")) {
 			if (conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana)
 			{
@@ -1282,9 +1322,22 @@ public class Races_EventActionListener2 implements Listener {
 			}
 			}
 		}
-		
+		//人魚高水泳書き込み有）（ブースター処有
+		mana = 3;
+		if (race.equalsIgnoreCase("hyouketuyousei")) {
+			if (conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana)
+			{
+				int boost = 0;
+				if (pl.getMetadata("spilituse").get(0).asInt() > 0) boost = 1;
+				Races_YUS.hyouketuyousei_skate(pl, TouhouMC_Races_Basic.plugin0, boost);
+				if (boost == 1){
+					conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - mana);
+					TouhouMC_Races_Basic.SavethraceConfig();
+			}
+			}
+		}
 		//TODO 鴉天狗
-		
+		mana = 2;
 		if (pl.getMetadata("spilituse").get(0).asInt() > 0 && race.equalsIgnoreCase("karasutenngu") && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana) {
 			int boost = 0;
 			if (pl.getMetadata("spilituse").get(0).asInt() > 0) boost = 1;
@@ -1303,8 +1356,8 @@ public class Races_EventActionListener2 implements Listener {
 		String race = conf.getString("user." + pl.getUniqueId() + ".race").toString();
 		int mana = 0;
 		//妖精羽ばたき
-		mana = 5;
-		if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito") || race.equalsIgnoreCase("satori") || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("egosatori") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou")){
+		mana = 10;
+		if (race.equalsIgnoreCase("yousei") || race.equalsIgnoreCase("kobito") || race.equalsIgnoreCase("kibito")  || race.equalsIgnoreCase("kyozin") || race.equalsIgnoreCase("zigokuyousei") || race.equalsIgnoreCase("sikiyou")){
 			if(conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana)
 			{
 				if (!pl.isOnGround() && pl.isSneaking() && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana ){
@@ -1315,7 +1368,7 @@ public class Races_EventActionListener2 implements Listener {
 			}
 		}
 		//仙人の壁抜
-		mana = 10;
+		mana = 60;
 		if (race.equalsIgnoreCase("sennnin") || race.equalsIgnoreCase("kodaizin")) {
 			if ((!pl.isOnGround()) && (pl.isSneaking()) && conf.getDouble("user." + pl.getUniqueId() + ".spilit") >= mana) {
 				Races_NNG.sennnin_passthough(pl, TouhouMC_Races_Basic.plugin0);

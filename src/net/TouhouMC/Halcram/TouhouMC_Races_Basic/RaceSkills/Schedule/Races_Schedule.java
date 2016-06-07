@@ -94,22 +94,22 @@ public class Races_Schedule {
 				for (Player player : Bukkit.getOnlinePlayers()){
 					String race = conf.getString("user." + player.getUniqueId() + ".race").toString();
 					if (race.contains("sukimayou") || (race.contains("yamakappa")) || (race.contains("karasutenngu")) || (race.contains("syoukaitenngu")) || (race.contains("youma")) || (race.contains("kappa")) || (race.contains("tenngu")) || (race.contains("kennyou"))){
-						player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-						player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 2000, 0));
+						player.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
+						player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 2000, 0));
 			            if(race.contains("kappa")){
 			                player.removePotionEffect(PotionEffectType.WATER_BREATHING);
 			                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 2000, 0));
 			            }
 					}
-					if (race.contains("kinnima") || race.contains("kairikirannsin") || (race.contains("akuma")) || (race.contains("kyuuketuki")) || (race.contains("oni"))){
-						player.removePotionEffect(PotionEffectType.ABSORPTION);
-						player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 2000, 1));
+					if (race.contains("egosatori") ||  (race.contains("satori")) ||race.contains("kinnima") || race.contains("kairikirannsin") || (race.contains("akuma")) || (race.contains("kyuuketuki")) || (race.contains("oni"))){
+						player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+						player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 2000, 0));
 					}
-					if (race.contains("egosatori") || race.contains("zigokuyousei") || race.contains("kyozin") || race.contains("sikiyou") || (race.contains("yousei")) || (race.contains("satori")) || (race.contains("kobito")) || (race.contains("kibito"))){
+					if (race.contains("daiyousei") || race.contains("hyouketuyousei") || race.contains("zigokuyousei") || race.contains("kyozin") || race.contains("sikiyou") || (race.contains("yousei")) || (race.contains("kobito")) || (race.contains("kibito"))){
 						player.removePotionEffect(PotionEffectType.JUMP);
 						player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 2000, 1));
 					}
-					if (race.contains("gyokuto") || race.contains("sinnzyuu") || race.contains("kyuubi") || race.contains("ryuugyo") || (race.contains("siki")) || (race.contains("zyuuzin")) || (race.contains("ninngyo"))) {
+					if (race.contains("gyokuto") || race.contains("sinnzyuu") || race.contains("kyuubi") || race.contains("ryuugyo") || (race.contains("youzyuu")) || (race.contains("siki")) || (race.contains("zyuuzin")) || (race.contains("ninngyo"))) {
 						if (!player.hasPotionEffect(PotionEffectType.SPEED)) {
 							player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 0));
 						}
@@ -118,6 +118,10 @@ public class Races_Schedule {
 							player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 2000, 0));
 						}
 					}
+					if (race.equalsIgnoreCase("seirei")||race.equalsIgnoreCase("hannrei")||race.equalsIgnoreCase("sourei")||race.equalsIgnoreCase("onnryou") ||race.equalsIgnoreCase("sinnrei")||race.equalsIgnoreCase("saigyouyou")||race.equalsIgnoreCase("zibakurei")||race.equalsIgnoreCase("kyourei")) {
+						player.removePotionEffect(PotionEffectType.LUCK);
+						player.addPotionEffect(new PotionEffect(PotionEffectType.LUCK, 2000, 0));
+					}
 					if ((race.contains("gyokuto"))  || (race.contains("sinnzyuu"))  || (race.contains("zyuuzin")) ){
 						if ((player.getWorld().getTime() >= 16000L))
 						{
@@ -125,10 +129,10 @@ public class Races_Schedule {
 								player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 1));
 							}
 							player.removePotionEffect(PotionEffectType.JUMP);
-							player.removePotionEffect(PotionEffectType.NIGHT_VISION);
+							player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 							player.removePotionEffect(PotionEffectType.REGENERATION);
 							player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 2000, 0));
-							player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 2000, 0));
+							player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 2000, 1));
 							player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 2000, 0));
 						}
 					}
@@ -148,11 +152,13 @@ public class Races_Schedule {
 								player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 1));
 							}
 							player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 2000, 0));
-							player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 2000, 0));
+							player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 2000, 1));
 							player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2000, 1));
-						}
-					}else if ((race.contains("kinnima")) || race.contains("kyuuketuki")){
+						
+					}else{
+						
 						player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 2000, 0));
+					}
 					}
 				}
 			}
@@ -276,32 +282,6 @@ public class Races_Schedule {
 						}
 					}
 				}
-				for (final Player player : Bukkit.getOnlinePlayers()){
-				String race = conf.getString("user." + player.getUniqueId() + ".race").toString();
-				if ((race.contains("yamakappa")) || (race.contains("karasutenngu")) || (race.contains("syoukaitenngu")) || (race.contains("youma")) || (race.contains("kappa")) || (race.contains("tenngu"))){
-					if (!player.isDead()) {
-						if (player.getHealth() > player.getMaxHealth() - 2.0D) {
-							player.setHealth(player.getMaxHealth());
-						} else {
-							player.setHealth(2.0D + player.getHealth());
-						}
-					}
-				}else if (race.contains("sukimayou") || race.contains("kennyou")){
-					if ((!player.isDead()) && (conf.getDouble("user." + player.getUniqueId() + ".spilit") >= 20.0D) && ((player.getMetadata("spilituse").get(0)).asDouble() > 0.0D)){
-						if (player.getHealth() > player.getMaxHealth() - 5.0D) {
-							player.setHealth(player.getMaxHealth());
-						} else {
-							player.setHealth(5.0D + player.getHealth());
-						}
-					}
-				}else if (!player.isDead()) {
-					if (player.getHealth() > player.getMaxHealth() - 1.0D) {
-						player.setHealth(player.getMaxHealth());
-					} else {
-						player.setHealth(1.0D + player.getHealth());
-					}
-				}
-				}	
 			}
 		}.runTaskTimer(plugin0, 0, 100L);
     }

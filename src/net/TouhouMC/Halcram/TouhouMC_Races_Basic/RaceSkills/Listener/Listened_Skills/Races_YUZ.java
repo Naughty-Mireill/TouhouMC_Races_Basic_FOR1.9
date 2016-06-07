@@ -50,7 +50,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_WOLF_GROWL, 1.0F, 1.0F);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ウオン」「ウオン」「ウオン」");
 			}
-		}, 40L);
+		}, 640L);
 	}
 
 	//猫召喚(式)
@@ -75,7 +75,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1.0F, 1.0F);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ニャア」「ニャア」「ニャア」");
 			}
-		}, 40L);
+		}, 980L);
 	}
 	//TODO 九尾
 	//馬召喚(式)
@@ -97,7 +97,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_HORSE_SADDLE, 1.0F, -1.0F);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "「ひゅい！？（違）」");
 			}
-		}, 100L);
+		}, 2000L);
 	}
 	
 	//馬の盗難防止
@@ -204,7 +204,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "詠唱のクールダウンが解けました");
 			}
-		}, 300L);
+		}, 600L);
 	}
 
 	////アクブスキル系
@@ -212,9 +212,9 @@ public class Races_YUZ extends JavaPlugin {
 		///移動スキル系
 		if (pl.getLocation().getBlock().getType() == Material.WATER || pl.getLocation().getBlock().getType() == Material.STATIONARY_WATER){
 			if (boost == 1){
-				pl.setVelocity(pl.getLocation().getDirection().multiply(2.0D));
-			}else{
 				pl.setVelocity(pl.getLocation().getDirection().multiply(0.4D));
+			}else if (boost > 1){
+				pl.setVelocity(pl.getLocation().getDirection().multiply(0.8D));
 			}
 		}
 	}
@@ -255,7 +255,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 120L);
+		}, 300L);
 	}
 	
 	//TODO 龍魚
@@ -290,7 +290,7 @@ public class Races_YUZ extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 40L);
+		}, 300L);
 	}
 	
 }

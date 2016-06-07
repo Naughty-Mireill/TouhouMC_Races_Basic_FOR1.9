@@ -71,7 +71,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 60L);
+		}, 300L);
 	}
 
 	//風魔法
@@ -88,7 +88,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 60L);
+		}, 200L);
 	}
 
 	//火魔法
@@ -117,7 +117,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		},80L);
+		},100L);
 	}
 
 	//水魔法
@@ -154,7 +154,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
-		, 180L);
+		, 500L);
 	}
 
 	//雷魔法
@@ -170,7 +170,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		},180L);
+		},700L);
 	}
 
 	//治癒魔法
@@ -198,7 +198,7 @@ public class Races_NNG extends JavaPlugin {
 					  pl.setMetadata("using-magic", usingmagic);
 					  pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 					}
-				}, 20L);
+				}, 100L);
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("casting", casted);
 			}
@@ -241,7 +241,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 180L);
+		}, 800L);
 	}
 
 	//シャベル＝フェザーフライ魔法
@@ -267,7 +267,7 @@ public class Races_NNG extends JavaPlugin {
 					}
 				}, 200L);
 			}
-		}, 160L);
+		}, 800L);
 	}
 	
 	//斧＝タイフーン
@@ -297,7 +297,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
-		, 150L);
+		, 800L);
 	}
 	
 	//鍬＝インビンシブル魔法
@@ -324,7 +324,7 @@ public class Races_NNG extends JavaPlugin {
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("casting", casted);
 			}
-		}, 60L);
+		}, 1200L);
 	}
 	//TODO 夢現人
 	//使い捨てワープゲート設置
@@ -352,7 +352,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 180L);
+		}, 2400L);
 	}
 	//使い捨てワープゲート発動
 	public static void mugen_one_gate_use(final Player pl, final Plugin plugin) {
@@ -392,7 +392,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱の効果とクールダウンが終わりました");
 			}
-		}, 100L);
+		}, 600L);
 	}
 	
 	//TODO 月人
@@ -409,7 +409,7 @@ public class Races_NNG extends JavaPlugin {
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
 		}
-		, 60L);
+		, 120L);
 	}
 	
 	////パッシブスキル系

@@ -7,18 +7,24 @@ import net.TouhouMC.Halcram.TouhouMC_Races_Basic.TouhouMC_Races_Basic;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 public class Races_YUS extends JavaPlugin {
 	///アクティブスキル系
@@ -29,9 +35,26 @@ public class Races_YUS extends JavaPlugin {
 		pl.getWorld().playEffect(pl.getLocation(), Effect.TILE_DUST, 133, 1);
 	}
 
+	//防御スキル系
+	public static void daiyousei_illusion(final Player pl, final Plugin plugin){
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "３秒間避けの体制を構えた！");
+		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_PURREOW, 3.0F, -1.0F);
+		pl.getWorld().playEffect(pl.getLocation(), Effect.SPELL, 1, 1);
+		pl.setNoDamageTicks(60);
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 300L);
+	}
+	
 	//攻撃スキル系
 	public static void yousei_illusion(final Player pl, final Plugin plugin){
-		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "金のシャベルの輝きがあたりを惑わす！！");
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.LIGHT_PURPLE + "怪しげな輝きがあたりを惑わす！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CAT_PURR, 3.0F, -1.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.HAPPY_VILLAGER, 1, 1);
 		List<Entity> enemys = pl.getNearbyEntities(14.0D, 14.0D, 14.0D);
@@ -55,7 +78,7 @@ public class Races_YUS extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 60L);
+		}, 600L);
 	}
 
 	public static void kibito_venom(final Player pl, final Plugin plugin){
@@ -83,10 +106,22 @@ public class Races_YUS extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 100L);
+		}, 400L);
 	}
 	
 	///パッシブスキル系
+
+	public static void hyouketuyousei_skate(Player pl, final Plugin plugin, int boost){
+		///移動スキル系
+		if (pl.getWorld().getBlockAt(pl.getLocation().getBlockX(), pl.getLocation().getBlockY() - 1, pl.getLocation().getBlockZ()).getType() == Material.PACKED_ICE || pl.getWorld().getBlockAt(pl.getLocation().getBlockX(), pl.getLocation().getBlockY() - 1, pl.getLocation().getBlockZ()).getType() == Material.ICE){
+			if (boost > 1 && boost <= 3){
+				pl.setVelocity(new Vector (pl.getLocation().getDirection().multiply(2.0D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(2.0D).getZ()));
+			}else if (boost == 1){
+				pl.setVelocity(new Vector (pl.getLocation().getDirection().multiply(1.0D).getX(),pl.getVelocity().getY(),pl.getLocation().getDirection().multiply(1.0D).getZ()));
+			}
+		}
+	}
+	
 	public static void yousei_glaze(Player pl, Plugin plugin, EntityDamageByEntityEvent event){
 		double ran = Math.random();
 		if (ran >= 0.9D){
@@ -96,6 +131,15 @@ public class Races_YUS extends JavaPlugin {
 		}
     }
 
+	public static void daiyousei_glaze(Player pl, Plugin plugin, EntityDamageByEntityEvent event){
+		double ran = Math.random();
+		if (ran >= 0.5D){
+			pl.getWorld().playSound(pl.getLocation(), Sound.ITEM_SHIELD_BLOCK, 1.0F, 1.0F);
+			pl.getWorld().playEffect(pl.getLocation(), Effect.ZOMBIE_CHEW_IRON_DOOR, 1, 2);
+			event.setDamage(event.getDamage() / 2);
+		}
+    }
+	
 	public static void kobito_glaze(Player pl, Plugin plugin, EntityDamageByEntityEvent event){
 		double ran = Math.random();
 		if (ran >= 0.8D){
@@ -161,7 +205,7 @@ public class Races_YUS extends JavaPlugin {
 				MetadataValue casted = new FixedMetadataValue(plugin, false) ;
 				pl.setMetadata("casting", casted);
 			}
-		}, 60L);
+		}, 3000L);
 	}
 	
 	//TODO 巨人
@@ -227,6 +271,49 @@ public class Races_YUS extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 240L);
+		}, 1000L);
+	}
+	
+
+	//氷魔法
+	public static void hyouketuyousei_cold(final Player pl, final Plugin plugin, PlayerInteractEvent e) {
+		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "氷結の弾を撃った！");
+		pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ITEM_SHIELD_BREAK, 1, 0);
+		Location location =pl.getEyeLocation();
+		float pitch = location.getPitch() / 180.0F * 3.1415927F;
+		float yaw=location.getYaw() / 180.0F * 3.1415927F ;
+		double motX=-Math.sin(yaw) * Math.cos(pitch);
+		double motZ=Math.cos(yaw) * Math.cos(pitch);
+		double motY=-Math.sin(pitch);
+		Vector velocity1=new Vector(motX,motY,motZ).multiply(0.7D);
+		Vector velocity2=new Vector(motX,motY,motZ).multiply(1.2D);
+		Vector velocity3=new Vector(motX,motY,motZ).multiply(1.7D);
+		
+		Snowball snowball1= (Snowball) pl.getWorld().spawnEntity(pl.getEyeLocation(), EntityType.SNOWBALL);
+		Snowball snowball2= (Snowball) pl.getWorld().spawnEntity(pl.getEyeLocation(), EntityType.SNOWBALL);
+		Snowball snowball3= (Snowball) pl.getWorld().spawnEntity(pl.getEyeLocation(), EntityType.SNOWBALL);
+		MetadataValue shooter = new FixedMetadataValue(plugin, pl.getUniqueId().toString()) ;
+		MetadataValue fireeffect = new FixedMetadataValue(plugin, 30D) ;
+		snowball1.setMetadata("coldeffect", fireeffect);
+		snowball1.setMetadata("hyouketuyousei-coldball", shooter);
+		snowball1.setVelocity(velocity1);
+		snowball1.setFireTicks(300);
+		snowball2.setMetadata("coldeffect", fireeffect);
+		snowball2.setMetadata("hyouketuyousei-coldball", shooter);
+		snowball2.setVelocity(velocity2);
+		snowball2.setFireTicks(300);
+		snowball3.setMetadata("coldeffect", fireeffect);
+		snowball3.setMetadata("hyouketuyousei-coldball", shooter);
+		snowball3.setVelocity(velocity3);
+		snowball3.setFireTicks(300);
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, true) ;
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, false) ;
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		},200L);
 	}
 }

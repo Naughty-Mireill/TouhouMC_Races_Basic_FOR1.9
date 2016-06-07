@@ -124,7 +124,7 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 							}
 							else if (args.length == 2)
 							{
-								if(sender.hasPermission("thrace.stats.other"))
+								if(sender.hasPermission("thrace.user") || sender.hasPermission("thrace.stats.other"))
 								{
 									if (Bukkit.getPlayer(args[1]) != null)
 									{
@@ -319,7 +319,7 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 					}else if(args[0].equalsIgnoreCase("needpoint")){
 						if (args.length == 2 && args[1].equalsIgnoreCase("check"))
 						{
-							if(sender.hasPermission("thrace.needpoint.check"))
+							if(sender.hasPermission("thrace.user") || sender.hasPermission("thrace.needpoint.check"))
 							{
 								if (sender instanceof Player)
 								{
@@ -565,7 +565,7 @@ public class TouhouMC_Races_Basic extends JavaPlugin implements Listener {
 								}
 							}
 							else if(args.length == 3 && args[1].equalsIgnoreCase("try")){
-							if(sender.hasPermission("thrace.evol.try")){
+							if(sender.hasPermission("thrace.user") || sender.hasPermission("thrace.evol.try")){
 								if (sender instanceof Player)
 								{
 									Player p;

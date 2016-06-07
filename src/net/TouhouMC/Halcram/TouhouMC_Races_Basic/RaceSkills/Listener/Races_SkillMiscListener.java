@@ -59,8 +59,8 @@ public class Races_SkillMiscListener implements Listener {
 	
 	@EventHandler
 	public void onSkillDamage(EntityDamageByEntityEvent e){
-		if(e.getEntity() instanceof Player){
-			Player p = (Player) e.getEntity();
+		if(e.getEntity() instanceof LivingEntity){
+			LivingEntity p = (LivingEntity) e.getEntity();
 			if(e.getDamager() instanceof Snowball){
 				Entity damagerentity = e.getDamager();
 				Snowball snowball = (Snowball)damagerentity;
@@ -89,7 +89,7 @@ public class Races_SkillMiscListener implements Listener {
 						p.sendMessage(((Player)snowball.getShooter()).getName() + "Ç©ÇÁÇÃçUåÇÇéÛÇØÇΩÅI");
 					}
 				}else if(snowball.hasMetadata("fireeffect")){
-					Player shooter = Bukkit.getServer().getPlayer(UUID.fromString(snowball.getMetadata("seirei-lightball").get(0).asString()));
+					Player shooter = Bukkit.getServer().getPlayer(UUID.fromString(snowball.getMetadata("mazyo-fireball").get(0).asString()));
 					boolean no_damage = false;
 					if (shooter instanceof Player)
 					{
@@ -99,6 +99,19 @@ public class Races_SkillMiscListener implements Listener {
 					{
 						e.setDamage(15);
 						p.setFireTicks(160);
+					}
+				}else if(snowball.hasMetadata("coldeffect")){
+					Player shooter = Bukkit.getServer().getPlayer(UUID.fromString(snowball.getMetadata("hyouketuyousei-coldball").get(0).asString()));
+					boolean no_damage = false;
+					if (shooter instanceof Player)
+					{
+						no_damage = shooter == p;
+					}
+					if (!no_damage)
+					{
+						e.setDamage(10D);
+						LivingEntity le = (LivingEntity)e.getEntity();
+						le.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING,200,3));
 					}
 				}else if(snowball.hasMetadata("saigyouyou-deathball")){
 					Player shooter = Bukkit.getServer().getPlayer(UUID.fromString(snowball.getMetadata("seirei-lightball").get(0).asString()));

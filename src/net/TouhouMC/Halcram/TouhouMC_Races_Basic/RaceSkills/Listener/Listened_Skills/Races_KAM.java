@@ -9,6 +9,7 @@ import org.bukkit.Sound;
 import org.bukkit.configuration.MemorySection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -121,7 +122,7 @@ public class Races_KAM extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱は終わりました");
 			}
-		}, 60L);
+		}, 400L);
 	}
 	
 	//TODO 土着神
@@ -170,7 +171,7 @@ public class Races_KAM extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱は終わりました");
 			}
-		}, 60L);
+		}, 400L);
 	}
 	
 	//TODO 付喪神
@@ -189,7 +190,7 @@ public class Races_KAM extends JavaPlugin {
 				attackplayer.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_AQUA + "さでずむーーー！！！！");
 				pl.getLocation().getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_VILLAGER_CONVERTED, 3.0F, 0.0F);
 				
-				conf.set("user." + pl.getUniqueId() + ".spilit", 200);
+				conf.set("user." + pl.getUniqueId() + ".spilit", 1000);
 				pl.setHealth(pl.getMaxHealth());
 			}
 			MetadataValue sadezumu = new FixedMetadataValue(plugin, mpoint) ;
@@ -205,19 +206,20 @@ public class Races_KAM extends JavaPlugin {
 				List<Entity> enemys = event.getEntity().getNearbyEntities(12.0D, 12.0D, 12.0D);
 				for (Entity enemy : enemys) {
 					boolean no_damage = false;
-					if (enemy instanceof Player)
-					{
-						no_damage = enemys == pl;
-					}
-					if (!no_damage)
+					no_damage = enemys == pl;
+					if (!no_damage && enemy instanceof LivingEntity)
 					{
 						if (!enemy.equals(pl))
 						{
-							((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "お前も共に死ね！！");
-							((Player)enemy).damage(20.0D);
-							conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - 5);
+							((LivingEntity) enemy).damage(20.0D);
+							if (enemy instanceof Player)
+							{
+								((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_RED + "お前も共に死ね！！");
+							}
 						}
+						conf.set("user." + pl.getUniqueId() + ".spilit", conf.getDouble("user." + pl.getUniqueId() + ".spilit") - 15);
 					}
+					
 				}
 			}
 		}

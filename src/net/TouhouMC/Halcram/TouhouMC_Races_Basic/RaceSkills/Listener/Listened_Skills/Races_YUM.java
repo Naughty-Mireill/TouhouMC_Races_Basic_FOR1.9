@@ -43,7 +43,7 @@ public class Races_YUM extends JavaPlugin {
 	}
 
 	///攻撃スキル系
-	public static void youma_golden_shockwave(Player pl, Plugin plugin){
+	public static void youma_golden_shockwave(final Player pl, final Plugin plugin){
 		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.YELLOW + "金の斧で全てを吹き飛ばす！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, 1.0F, 0.0F);
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 0.0F);
@@ -62,9 +62,18 @@ public class Races_YUM extends JavaPlugin {
 				enemy.getLocation().getWorld().playSound(enemy.getLocation(), Sound.ENTITY_PLAYER_HURT, 1.0F, 1.0F);
 			}}
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 100L);
 	}
 
-	public static void kappa_stone_tnt(Player pl){
+	public static void kappa_stone_tnt(final Player pl, final Plugin plugin){
 		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GRAY + "石の斧でTNTを投げた！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_LINGERINGPOTION_THROW, 1.0F, 0.0F);
 		Location location = pl.getEyeLocation();
@@ -81,9 +90,18 @@ public class Races_YUM extends JavaPlugin {
         tnt.setIsIncendiary(true);
         tnt.setFireTicks(20);
         tnt.setFuseTicks(20);
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 200L);
 	}
 
-	public static void youma_wooden_upper(Player pl, Plugin plugin){
+	public static void youma_wooden_upper(final Player pl, final Plugin plugin){
 		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "斧で地面を叩き上げた！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_ZOMBIE_BREAK_DOOR_WOOD, 2.0F, 0.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.EXPLOSION_LARGE, 1, 1);
@@ -102,6 +120,15 @@ public class Races_YUM extends JavaPlugin {
 				}
 			}
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 120L);
 	}
 	
 	//TODO 天狗の落下耐性
@@ -123,7 +150,7 @@ public class Races_YUM extends JavaPlugin {
 	}
 	
 	//TODO スキマ妖
-	public static void sukima_sukima_warp(Player pl, Plugin plugin){
+	public static void sukima_sukima_warp(final Player pl, final Plugin plugin){
 		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GOLD + "スキマを開き自身の殺人に出会おう！");
 		if (pl.getKiller() != null)
 		{
@@ -139,10 +166,19 @@ public class Races_YUM extends JavaPlugin {
 		{
 			pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.RED + "いなかった！");
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 3200L);
 	}
 	
 	//TODO 山河童
-	public static void yamakappa_thown_creeper(Player pl){
+	public static void yamakappa_thown_creeper(final Player pl, final Plugin plugin){
 		pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.GREEN + "いけ！クリーパー！！");
 		pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_CREEPER_DEATH, 1.0F, 1.0F);
 		Location location = pl.getEyeLocation();
@@ -159,6 +195,15 @@ public class Races_YUM extends JavaPlugin {
         creeper.setNoDamageTicks(1000);
         creeper.setFireTicks(20);
         creeper.setPowered(true);
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 1600L);
 	}
 	
 	//TODO 鴉天狗

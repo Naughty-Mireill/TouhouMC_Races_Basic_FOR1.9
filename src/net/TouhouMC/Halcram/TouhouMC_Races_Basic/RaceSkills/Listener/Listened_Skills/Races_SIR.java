@@ -68,11 +68,11 @@ public class Races_SIR extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 400L);
+		}, 800L);
 	}
 
 	//攻撃スキル系
-	public static void hannrei_hannrei_ball(Player pl, Plugin plugin){
+	public static void hannrei_hannrei_ball(final Player pl, final Plugin plugin){
 		pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_SAND_BREAK, 2.0F, 2.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.SNOW_SHOVEL, 1, 1);
 		Location location = pl.getEyeLocation();
@@ -86,9 +86,18 @@ public class Races_SIR extends JavaPlugin {
 		MetadataValue shooter = new FixedMetadataValue(plugin, pl.getUniqueId().toString());
 		snowball.setMetadata("hannrei-curseball", shooter);
 		snowball.setVelocity(velocity);
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 200L);
 	}
 
-	public static void sourei_music(Player pl, Plugin plugin){
+	public static void sourei_music(final Player pl, final Plugin plugin){
 		List<Entity> enemys = pl.getNearbyEntities(16.0D, 16.0D, 16.0D);
 		double rand = Math.random();
 		if (rand >= 0.8D){
@@ -138,9 +147,18 @@ public class Races_SIR extends JavaPlugin {
 				}
 			}
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 3200L);
 	}
 	//光弾
-	public static void seirei_lightball(Player pl, Plugin plugin){
+	public static void seirei_lightball(final Player pl, final Plugin plugin){
 		pl.getWorld().playSound(pl.getLocation(), Sound.BLOCK_SNOW_BREAK, 2.0F, 2.0F);
 		pl.getWorld().playEffect(pl.getLocation(), Effect.SNOW_SHOVEL, 1, 1);
 		Location location = pl.getEyeLocation();
@@ -159,6 +177,15 @@ public class Races_SIR extends JavaPlugin {
 			snowball.setVelocity(velocity);
 			n++;
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 100L);
 	}
 
 	public static void onnryou_never_vanish(Player pl, Plugin plugin, EntityDamageByEntityEvent event, int boost){
@@ -213,7 +240,7 @@ public class Races_SIR extends JavaPlugin {
 		}
 	}
 	//TODO 神霊
-	public static void sinnrei_godsoul(Player pl, Plugin plugin){
+	public static void sinnrei_godsoul(final Player pl, final Plugin plugin){
 		Collection<? extends Player> enemys = Bukkit.getServer().getOnlinePlayers();
 		double rand = Math.random();
 		if (rand >= 0.6D){
@@ -237,12 +264,20 @@ public class Races_SIR extends JavaPlugin {
 			for (Entity enemy : enemys) {
 				if ((enemy instanceof Player)){
 					((Player)enemy).playSound(pl.getLocation(), Sound.ENTITY_VILLAGER_DEATH, 1.0F, -1.0F);
-					((Player)enemy).setNoDamageTicks(20);
-					((Player)enemy).setHealth(1D);
-					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "無敵後即死の世界になった！");
+					((Player)enemy).setNoDamageTicks(100);
+					((Player)enemy).sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.DARK_GRAY + "無敵の世界になった！");
 				}
 			}
 		}
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+			}
+		}, 6000L);
 	}
 	//TODO 夢喰
 	public static void yumekui_dreamy(final Player pl, final Plugin plugin){
@@ -290,7 +325,7 @@ public class Races_SIR extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(TouhouMC_Races_Basic.thrace_Races_pre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 600L);
+		}, 2400L);
 	}
 	
 	//TODO 西行妖

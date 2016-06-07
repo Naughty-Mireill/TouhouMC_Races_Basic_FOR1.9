@@ -57,7 +57,7 @@ public class Races_AKM extends JavaPlugin {
 						bat.removeMetadata("invincible", plugin);
 						((Damageable) bat).damage(1000.0D);
 					}
-				}, 100L);
+				}, 300L);
 			}
 		}, 20L);
 	}
@@ -91,7 +91,7 @@ public class Races_AKM extends JavaPlugin {
 				pl.setMetadata("using-magic", usingmagic);
 				pl.sendMessage(thrpre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
 			}
-		}, 100L);
+		}, 400L);
 	}
 
 	//鬼の埋め落とし
@@ -111,14 +111,16 @@ public class Races_AKM extends JavaPlugin {
 				Player pl = event.getPlayer();
 				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
 				pl.setMetadata("using-magic", usingmagic);
-				pl.sendMessage(thrpre + ChatColor.BLUE + "詠唱のクールダウンが終わりました");
+				pl.sendMessage(thrpre + ChatColor.BLUE + "効果と詠唱のクールダウンが終わりました");
 			}
-		}, 120L);
+		}, 200L);
 	}
 
 	//吸血鬼の吸血
-	public static void kyuuketuki_drain(Player pl, Plugin plugin, PlayerInteractEntityEvent event, LivingEntity entity){
+	public static void kyuuketuki_drain(final Player pl, final Plugin plugin, PlayerInteractEntityEvent event, LivingEntity entity){
 		Entity target = event.getRightClicked();
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
 		if (pl.getLocation().distanceSquared(target.getLocation()) >= 40.0D){
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SPIDER_AMBIENT, 2.0F, 1.0F);
 			pl.sendMessage(thrpre + ChatColor.BLUE + "しかし逃げられてしまった！！");
@@ -137,11 +139,20 @@ public class Races_AKM extends JavaPlugin {
 				pl.setHealth(30.0D + pl.getHealth());
 			}
 		}
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(thrpre + ChatColor.BLUE + "効果と詠唱のクールダウンが終わりました");
+			}
+		}, 200L);
 	}
 	//TODO 禁忌魔
 	//禁忌魔のきゅっとして
-	public static void kinnima_kyuttosite(Player pl, Plugin plugin, PlayerInteractEntityEvent event, LivingEntity entity){
+	public static void kinnima_kyuttosite(final Player pl, final Plugin plugin, PlayerInteractEntityEvent event, LivingEntity entity){
 		Entity target = event.getRightClicked();
+		MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(true));
+		pl.setMetadata("using-magic", usingmagic);
 		if (pl.getLocation().distanceSquared(target.getLocation()) >= 80.0D){
 			pl.getWorld().playSound(pl.getLocation(), Sound.ENTITY_SPIDER_AMBIENT, 2.0F, 1.0F);
 			pl.sendMessage(thrpre + ChatColor.BLUE + "しかし逃げられてしまった！！");
@@ -154,6 +165,13 @@ public class Races_AKM extends JavaPlugin {
 				((Player)target).damage(90D,pl);
 			}
 		}
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+			public void run(){
+				MetadataValue usingmagic = new FixedMetadataValue(plugin, Boolean.valueOf(false));
+				pl.setMetadata("using-magic", usingmagic);
+				pl.sendMessage(thrpre + ChatColor.BLUE + "効果と詠唱のクールダウンが終わりました");
+			}
+		}, 200L);
 	}
 	
 	///パッシブ系
@@ -210,8 +228,8 @@ public class Races_AKM extends JavaPlugin {
 				}
 				if (!no_damage)
 				{
-				((LivingEntity)enemy).damage(3.0D);
-				((LivingEntity)enemy).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 10, 2));
+				((LivingEntity)enemy).damage(2.0D);
+				((LivingEntity)enemy).addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 10, 1));
 				enemy.getWorld().playEffect(enemy.getLocation(), Effect.TILE_DUST, 13);
 				}}
 		}
